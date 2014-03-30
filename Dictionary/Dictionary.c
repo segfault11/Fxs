@@ -2,15 +2,15 @@
 #include <memory.h>
 #include <string.h>
 
-enum
-{
-    MANAGED = 0,
-    NOT_MANAGED
-};
+struct FxsDictionaryBucket_;
 
 typedef struct FxsDictionaryBucket_
 {
-    int type;
+	FxsListIteratorPtr it;             /* stores the position of the key for 
+									   ** this bucket element in the keys list, 
+									   ** so we can remove the key from the 
+									   ** list in O(1).
+									   */
 	struct FxsDictionaryBucket_* next;
 	char* key;
 	void* value;
@@ -22,6 +22,7 @@ typedef struct FxsDictionary_
 	size_t tableSize;
 	size_t size; 		/* # of entries in the dictionary */
 	FxsDictionaryBucket** buckets;
+	FxsListPtr keys;
 }
 FxsDictionary;
 
@@ -50,14 +51,13 @@ size_t ComputeHash(const char *str)
 }
 
 
-int FxsDictionaryCreateWithTableSize(FxsDictionaryPtr* dict, size_t tableSize)
+FxsDictionaryPtr FxsDictionaryCreateWithTableSize(size_t tableSize)
 {
 	FxsDictionary* d = (FxsDictionary*)malloc(sizeof(FxsDictionary));
 
 	if (!d || !tableSize)
 	{
-        *dict = NULL;
-		return 0;
+		return NULL;
 	}
 
 	d->tableSize = tableSize;
@@ -65,113 +65,25 @@ int FxsDictionaryCreateWithTableSize(FxsDictionaryPtr* dict, size_t tableSize)
 
 	if (!d->buckets) 
 	{
-        *dict = NULL;
 		free(d);
-	    return 0;
+	    return NULL;
 	}
 
 	memset(d->buckets, 0, sizeof(FxsDictionaryBucket*)*tableSize);
 
 	d->size = 0;
+	d->keys = FxsListCreate();
+
+	if (!d->keys) 
+	{
+	    free(d->buckets);
+		free(d);
+	}
 	
-
-	*dict = d;
-	return 1;
+	return d;
 }
 
-int FxsDictionaryInsert(FxsDictionaryPtr dict, const char* key, void* value, size_t size)
-{
-	size_t hash = 0;
-	FxsDictionaryBucket* bucket = NULL;
-	FxsDictionaryBucket* prev = NULL;
-	size_t strl;
-
-	if (!dict || !key || !dict->tableSize) 
-	{
-	    return 0;
-	}
-
-	/* check if the key already exists */
-	if (FxsDictionaryFind(dict, key))
-	{
-		return 0;
-	}
-
-	hash = ComputeHash(key) % dict->tableSize;
-
-	bucket = dict->buckets[hash];
-
-	if (bucket == NULL) /* if this is the first entry for the bucket */
-	{
-	    bucket = (FxsDictionaryBucket*)malloc(sizeof(FxsDictionaryBucket));
-        dict->buckets[hash] = bucket;
-	}
-	else /* else search for the last entry in this bucket ... */
-	{
-		while (1)
-		{
-			if (!bucket->next) 
-			{
-				/* .. attach a new entry and break */
-				bucket->next = (FxsDictionaryBucket*)malloc(
-						sizeof(FxsDictionaryBucket)
-					);
-                
-                prev = bucket;
-				bucket = bucket->next;
-
-		    	break;
-			}
-
-			bucket = bucket->next;
-		}
-	}
-
-	/* complain if malloc failed */
-	if (!bucket)
-	{
-		return 0;
-	}
-
-	strl = strlen(key + 1);
-	bucket->key = (char*)malloc(strl);
-
-	if (!bucket->key)
-	{
-        if (prev)
-        {
-            prev->next = NULL;
-        }
-    
-	    free(bucket);
-		return 0;
-	}
-
-    bucket->value = malloc(size);
-
-	if (!bucket->value)
-	{
-        if (prev)
-        {
-            prev->next = NULL;
-        }
-    
-        free(bucket->key);
-        free(bucket);
-		return 0;
-	}
-
-	strcpy(bucket->key, key);
-	memcpy(bucket->value, value, size);
-	bucket->next = NULL;
-    bucket->type = MANAGED;
-
-    dict->size++;
-    
-	return 1;
-}
-
-int FxsDictionaryInsertReference(FxsDictionaryPtr dict, const char* key, void* value)
+int FxsDictionaryInsert(FxsDictionaryPtr dict, const char* key, void* value)
 {
 	size_t hash = 0;
 	FxsDictionaryBucket* prev = NULL;
@@ -184,7 +96,7 @@ int FxsDictionaryInsertReference(FxsDictionaryPtr dict, const char* key, void* v
 	}
 
 	/* check if the key already exists */
-	if (FxsDictionaryFind(dict, key))
+	if (FxsDictionaryContains(dict, key))
 	{
 		return 0;
 	}
@@ -234,6 +146,10 @@ int FxsDictionaryInsertReference(FxsDictionaryPtr dict, const char* key, void* v
         {
             prev->next = NULL;
         }
+		else
+		{
+			dict->buckets[hash] = NULL;
+		}
         
 	    free(bucket);
 		return 0;
@@ -242,7 +158,29 @@ int FxsDictionaryInsertReference(FxsDictionaryPtr dict, const char* key, void* v
 	strcpy(bucket->key, key);
 	bucket->value = value;
 	bucket->next = NULL;
-    bucket->type = NOT_MANAGED;
+
+	/* push back the key to the list that manages all our keys */
+	if (!FxsListPushBack(dict->keys, bucket->key))
+	{
+		free(bucket->key);
+	
+        if (prev)
+        {
+            prev->next = NULL;
+        }
+		else
+		{
+			dict->buckets[hash] = NULL;
+		}
+        
+	    free(bucket);
+		return 0;
+	}
+	else
+	{
+		bucket->it = FxsListIteratorCreate(dict->keys, FXS_LIST_BACK, FXS_LIST_BACK_TO_FRONT);
+		FxsListIteratorNext(bucket->it);
+	}
 
     dict->size++;
 
@@ -275,13 +213,10 @@ int FxsDictionaryRemove(FxsDictionaryPtr dict, const char* key)
 	{
 		dict->buckets[hash] = bucket->next;
 
-        if (bucket->type == MANAGED)
-        {
-            free(bucket->value);
-        }
-
+		FxsListIteratorRemove(bucket->it);
+		FxsListIteratorDestroy(&bucket->it);		
 		free(bucket->key);
-		free(bucket);	
+		free(bucket);
 
         dict->size--;
 
@@ -295,11 +230,8 @@ int FxsDictionaryRemove(FxsDictionaryPtr dict, const char* key)
 		{
 			prevBucket->next = bucket->next;
             
-            if (bucket->type == MANAGED)
-            {
-                free(bucket->value);
-            }
-            
+			FxsListIteratorRemove(bucket->it);
+			FxsListIteratorDestroy(&bucket->it);		
 			free(bucket->key);
 			free(bucket);	
 			
@@ -313,6 +245,33 @@ int FxsDictionaryRemove(FxsDictionaryPtr dict, const char* key)
 	}
 
 	return 0;	
+}
+
+int FxsDictionaryContains(FxsDictionaryPtr dict, const char* key)
+{
+	size_t hash = 0;
+	FxsDictionaryBucket* bucket = NULL;
+
+	if (!dict || !key || !dict->tableSize) 
+	{
+	    return 0;
+	}
+
+	hash = ComputeHash(key) % dict->tableSize;
+
+	bucket = dict->buckets[hash];
+
+	while (bucket)
+	{
+		if (!strcmp(bucket->key, key))
+		{
+		    return 1;
+		}
+		
+		bucket = bucket->next;
+	}
+
+	return 0;
 }
 
 void* FxsDictionaryFind(FxsDictionaryPtr dict, const char* key)
@@ -351,11 +310,6 @@ static void DeleteBucket(FxsDictionaryBucket* bucket)
 	    DeleteBucket(bucket->next);
 	}
 
-    if (bucket->type == MANAGED)
-    {
-        free(bucket->value);
-    }
-
 	free(bucket->key);
 	free(bucket);
 }
@@ -378,4 +332,18 @@ void FxsDictionaryDestroy(FxsDictionaryPtr* dict)
 	}
 
 	free((*dict)->buckets);
+	FxsListDestroy(&(*dict)->keys);
+	free(*dict);
+
+	dict = NULL;
+}
+
+FxsListPtr FxsDictionaryGetKeys(FxsDictionaryPtr dict)
+{
+	if (!dict) 
+	{
+	    return NULL;
+	}
+
+	return dict->keys;
 }

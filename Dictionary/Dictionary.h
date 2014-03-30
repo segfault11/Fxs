@@ -24,30 +24,17 @@ extern "C"
 #endif
 
 #include <stdlib.h>
+#include "../List/List.h"
 
 typedef struct FxsDictionary_* FxsDictionaryPtr;
 
-
-int FxsDictionaryCreateWithTableSize(FxsDictionaryPtr* dict, size_t tableSize);
-
-
-
 /*
-** Inserts a pointer (value) to the dictionary. This method copies the
-** data the pointer references. The copy of the data is managed by the 
-** dictionary. Do not free it, once you got access to this data via
-** FxsDictionaryFind. If the key already exists in the dictionary this 
-** method does nothing.
+** Creates a dictionary with a given table size.
 **
-** @param dict The dictionary the value is stored in.
-** @param key The key the pointer is assiciated with.
-** @param value The pointer to the data to be stored.
-** @param size Size of the datae the value pointer points to.
-**
-** @return 0 if the method fails, 1 otherwise.
+** @param tableSize The table size of the hash table used by the dictionary
+** @return NULL if the creation failed, otherwise a pointer to the dictionary.
 */ 
-int FxsDictionaryInsert(FxsDictionaryPtr dict, const char* key, void* value, size_t size);
-
+FxsDictionaryPtr FxsDictionaryCreateWithTableSize(size_t tableSize);
 
 /*
 ** Inserts a pointer (value) to the dictionary. This method does not copy the 
@@ -60,7 +47,10 @@ int FxsDictionaryInsert(FxsDictionaryPtr dict, const char* key, void* value, siz
 **
 ** @return 0 if the method fails, 1 otherwise.
 */ 
-int FxsDictionaryInsertReference(FxsDictionaryPtr dict, const char* key, void* value);
+int FxsDictionaryInsert(FxsDictionaryPtr dict, const char* key, void* value);
+
+
+int FxsDictionaryContains(FxsDictionaryPtr dict, const char* key);
 
 /*
 ** Looks up a pointer for a key.
@@ -73,12 +63,37 @@ int FxsDictionaryInsertReference(FxsDictionaryPtr dict, const char* key, void* v
 */ 
 void* FxsDictionaryFind(FxsDictionaryPtr dict, const char* key);
 
+/*
+** Removes an entry from the dictionary. 
+**
+** @param dict The dictionary the entry should be removed from.
+** @param key The key referencing the entry.
+**
+** @return 1 if the entry could be removed, 0 if the entry was not found.
+*/ 
 int FxsDictionaryRemove(FxsDictionaryPtr dict, const char* key);
 
 
+/*
+** Releases the dictionary. Note that the entries the dictionary are not managed
+** by the dictionary and should be freed manually.
+**
+** @param dict The dictionary to be released.
+*/ 
 void FxsDictionaryDestroy(FxsDictionaryPtr* dict);
 
- 
+
+/*
+** Returns a list of all keys that are currently inside the dictionary. 
+** Note: The list is maintained by the dictionary, do not release it manually.
+**       However, if you request an iterator from the list it should be 
+**       released manually.
+**
+** @param dict The dictionary we want the list from.
+** @return A pointer to the keys list.
+*/ 
+FxsListPtr FxsDictionaryGetKeys(FxsDictionaryPtr dict);
+
 
 
 #ifdef __cplusplus

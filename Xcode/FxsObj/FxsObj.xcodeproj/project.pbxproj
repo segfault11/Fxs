@@ -1,0 +1,256 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8A37A5E18E17EC900CA4EA2 /* ObjMesh.c in Sources */ = {isa = PBXBuildFile; fileRef = A8A37A5C18E17EC900CA4EA2 /* ObjMesh.c */; };
+		A8A37A5F18E17EC900CA4EA2 /* ObjMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = A8A37A5D18E17EC900CA4EA2 /* ObjMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8A37A6318E17F5600CA4EA2 /* libFxsDictionary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A37A6218E17F5600CA4EA2 /* libFxsDictionary.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A8A37A5518E17EB900CA4EA2 /* libFxsObj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFxsObj.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8A37A5C18E17EC900CA4EA2 /* ObjMesh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ObjMesh.c; path = ../../Obj/ObjMesh.c; sourceTree = "<group>"; };
+		A8A37A5D18E17EC900CA4EA2 /* ObjMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjMesh.h; path = ../../Obj/ObjMesh.h; sourceTree = "<group>"; };
+		A8A37A6218E17F5600CA4EA2 /* libFxsDictionary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFxsDictionary.a; path = ../../../../../Libraries/Fxs/Lib/libFxsDictionary.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8A37A5218E17EB900CA4EA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8A37A6318E17F5600CA4EA2 /* libFxsDictionary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8A37A4C18E17EB900CA4EA2 = {
+			isa = PBXGroup;
+			children = (
+				A8A37A6118E17F4200CA4EA2 /* External */,
+				A8A37A6018E17F2E00CA4EA2 /* Obj */,
+				A8A37A5618E17EB900CA4EA2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A8A37A5618E17EB900CA4EA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8A37A5518E17EB900CA4EA2 /* libFxsObj.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8A37A6018E17F2E00CA4EA2 /* Obj */ = {
+			isa = PBXGroup;
+			children = (
+				A8A37A5C18E17EC900CA4EA2 /* ObjMesh.c */,
+				A8A37A5D18E17EC900CA4EA2 /* ObjMesh.h */,
+			);
+			name = Obj;
+			sourceTree = "<group>";
+		};
+		A8A37A6118E17F4200CA4EA2 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				A8A37A6218E17F5600CA4EA2 /* libFxsDictionary.a */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A8A37A5318E17EB900CA4EA2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8A37A5F18E17EC900CA4EA2 /* ObjMesh.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A8A37A5418E17EB900CA4EA2 /* FxsObj */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8A37A5918E17EB900CA4EA2 /* Build configuration list for PBXNativeTarget "FxsObj" */;
+			buildPhases = (
+				A8A37A5118E17EB900CA4EA2 /* Sources */,
+				A8A37A5218E17EB900CA4EA2 /* Frameworks */,
+				A8A37A5318E17EB900CA4EA2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FxsObj;
+			productName = FxsObj;
+			productReference = A8A37A5518E17EB900CA4EA2 /* libFxsObj.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8A37A4D18E17EB900CA4EA2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Arno in Wolde Luebke";
+			};
+			buildConfigurationList = A8A37A5018E17EB900CA4EA2 /* Build configuration list for PBXProject "FxsObj" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A8A37A4C18E17EB900CA4EA2;
+			productRefGroup = A8A37A5618E17EB900CA4EA2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8A37A5418E17EB900CA4EA2 /* FxsObj */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8A37A5118E17EB900CA4EA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8A37A5E18E17EC900CA4EA2 /* ObjMesh.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A8A37A5718E17EB900CA4EA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A8A37A5818E17EB900CA4EA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A8A37A5A18E17EB900CA4EA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/scttrbrn/Documents/Libraries/Fxs/Lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/scttrbrn/Documents/Libraries/Fxs/Include/**";
+			};
+			name = Debug;
+		};
+		A8A37A5B18E17EB900CA4EA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/scttrbrn/Documents/Libraries/Fxs/Lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/scttrbrn/Documents/Libraries/Fxs/Include/**";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8A37A5018E17EB900CA4EA2 /* Build configuration list for PBXProject "FxsObj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8A37A5718E17EB900CA4EA2 /* Debug */,
+				A8A37A5818E17EB900CA4EA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8A37A5918E17EB900CA4EA2 /* Build configuration list for PBXNativeTarget "FxsObj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8A37A5A18E17EB900CA4EA2 /* Debug */,
+				A8A37A5B18E17EB900CA4EA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8A37A4D18E17EB900CA4EA2 /* Project object */;
+}

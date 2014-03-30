@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:DictionaryTest/DictionaryTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ListTest/ListTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:NumberTest/NumberTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FxsObj/FxsObj.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ObjMeshTest/ObjMeshTest.xcodeproj">
+   </FileRef>
+</Workspace>
