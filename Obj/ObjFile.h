@@ -46,6 +46,20 @@ FxsObjFace;
 
 typedef struct FxsObjGroup_* FxsObjGroupPtr;
 typedef struct FxsObjObject_* FxsObjObjectPtr;
+
+
+/*
+** Representation of an .obj file.
+**
+** Some notes:
+**  	- While loading the .obj file always a default object (FxsObjObject)
+**        is created. The name of the default object is the NULL ptr. If the
+**   	  to be loaded .obj file has "o" definitions from the beginning the
+**        default object will be empty.
+** 		- Each default object has a default group (FxsObjGroup). The name of
+** 		  the group is the NULL ptr. If a "g" is given from beginning in the 
+**        .obj file the default group is empty.
+*/ 
 typedef struct FxsObjFile_* FxsObjFilePtr;
 
 
@@ -82,7 +96,7 @@ FxsListPtr FxsObjFileGetObjects(FxsObjFilePtr file);
 /*
 ** Loads an .obj file from storage and creates a FxsObjFile struct for it.
 **
-** @param filename The filename of the .obj file we wish to load.
+** @param filename The filename of the .obj file we wish to load, as a C ptr.
 ** @return A FxsObjFilePtr or NULL of loading the file failed.
 */ 
 FxsObjFilePtr FxsObjFileCreate(const char* filename);

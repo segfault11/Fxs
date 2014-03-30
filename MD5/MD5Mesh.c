@@ -1,4 +1,4 @@
- /*
+/*
 ** some notes:
 ** - FxsMD5Joint might not need position, orientation and parent member, as
 ** 	 as this information is already stored for the corresponding 
