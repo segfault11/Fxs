@@ -47,7 +47,6 @@ FxsObjFace;
 typedef struct FxsObjGroup_* FxsObjGroupPtr;
 typedef struct FxsObjObject_* FxsObjObjectPtr;
 
-
 /*
 ** Representation of an .obj file.
 **
@@ -62,7 +61,6 @@ typedef struct FxsObjObject_* FxsObjObjectPtr;
 */ 
 typedef struct FxsObjFile_* FxsObjFilePtr;
 
-
 /*
 ** Gets a list of faces that belong to the group. The list and its contents
 ** are managed by the FxsObjFile data structure do not release it.
@@ -74,6 +72,14 @@ typedef struct FxsObjFile_* FxsObjFilePtr;
 FxsListPtr FxsObjGroupGetFaces(FxsObjGroupPtr group);
 
 /*
+** Returns the name of a group or NULL if it is a default group.
+**
+** @param group Group, we want the name for.
+** @return Name of the group.
+*/ 
+const char* FxSObjGroupGetName(FxsObjGroupPtr group);
+
+/*
 ** Gets the group(s) that are containted in an Object in form of a list.
 ** The list stores FxsObjGroupPtr's. The list and its contents
 ** are managed by the FxsObjFile data structure do not release it.
@@ -82,6 +88,14 @@ FxsListPtr FxsObjGroupGetFaces(FxsObjGroupPtr group);
 ** @param A list that stores FxsObjGroup's.
 */ 
 FxsListPtr FxsObjObjectGetGroups(FxsObjObjectPtr object);
+
+/*
+** Returns the name of the object or NULL if it is the default object.
+**
+** @param object The object that we want the name for.
+** @return The name of the object.
+*/ 
+const char* FxsObjObjectGetName(FxsObjObjectPtr object);
 
 /*
 ** Gets the object's contained in an FxsObjFile data structure, in form of a
@@ -107,6 +121,51 @@ FxsObjFilePtr FxsObjFileCreate(const char* filename);
 ** @param objFile The FxsObjFile to be released.
 */ 
 void FxsObjFileDestroy(FxsObjFilePtr* objFile);
+
+/*
+** Gets the position with an id and stores it into "pos". Does nothing and 
+** returns 0 if the position for the id could not be found (id >= numPos).
+*/ 
+int FxsObjFileGetPosition(FxsObjFilePtr file, FxsVector3* pos, unsigned int id);
+
+/*
+** Gets the normal with an id and stores it into "normal". Does nothing and 
+** returns 0 if the normal for the id could not be found (id >= numNormals).
+*/ 
+int FxsObjFileGetNormal(FxsObjFilePtr file, FxsVector3* normal, unsigned int id);
+
+/*
+** Gets the texture coordinate with an id and stores it into "tc". Does nothing 
+** and returns 0 if the tex coordinate for the id could not be found 
+** (id >= numTexcoordinates).
+*/ 
+int FxsObjFileGetTexCoord(FxsObjFilePtr file, FxsVector2* tc, unsigned int id);
+
+/*
+** Gets the name of an material with and id. returns NULL if the material name
+** for the id does not exist.
+*/ 
+const char* FxsObjFileGetMaterialName(FxsObjFilePtr file, unsigned int id);
+
+/*
+** Gets the .mtl file name associated with this .obj file.
+*/ 
+const char* FxsObjFileGetMtlName(FxsObjFilePtr file);
+
+/*
+** Gets the number of positions contained in the file
+*/ 
+unsigned int FxsObjFileGetNumPositions(FxsObjFilePtr file);
+
+/*
+** Gets the number of tex coordinates contained in the file
+*/ 
+unsigned int FxsObjFileGetNumTexCoords(FxsObjFilePtr file);
+
+/*
+** Gets the number of normals contained in the file
+*/ 
+unsigned int FxsObjFileGetNumNormals(FxsObjFilePtr file);
 
 #ifdef __cplusplus
 }

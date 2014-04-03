@@ -1,11 +1,149 @@
 #include "ObjFile.h"
+#include "../Dictionary/Dictionary.h"
+#include "../Number/Number.h"
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX_STR_LEN 1024
 
 #define ERR_MSG(X) printf("In file: %s line: %d\n\tError reading line: %s\n", __FILE__, __LINE__, X);
 
+/******************************************************************************
+**  Line processing utils
+******************************************************************************/
+
+int IsEndOfLine(char c)
+{
+	if (c == '\r' || c == '\n' || c == EOF || c == '\0') 
+	{
+	    return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+/*
+** finds the first space of the line and returns the rest string from this 
+** position (e.g. used to read in material names, object and group names,
+** since they should be allowed to be not only one string). The line should 
+** be trimmed before calling this function.
+*/ 
+void GetRestOfLine(char* dst, const char* src)
+{
+	int i = 0;
+	int j = 0;
+
+	while (src[i] != ' ')
+	{
+		if (IsEndOfLine(src[i]))
+		{
+			return;
+		}
+
+		i++;
+	}
+
+	i++;
+
+	while (!IsEndOfLine(src[i])) 
+	{
+		dst[j] = src[i];	
+
+		i++;
+		j++; 
+	}
+
+	dst[j] = '\0';
+}
+
+/*
+** Trims the line from both ends.
+*/ 
+void Trim(char* line)
+{
+	char tmp[MAX_STR_LEN];
+	int i = 0, j = 0, k = 0;
+
+	while(isspace(line[i]))
+	{
+		i++;
+	}
+
+	while (!IsEndOfLine(line[i])) 
+	{
+		tmp[j] = line[i];
+	
+		if (!isspace(tmp[j]))  /* save an index to the last non white space
+							   ** character.
+							   */
+		{
+		   	 k = j + 1;
+		}
+
+		j++;
+		i++;
+	}
+
+	tmp[k] = '\0';
+
+	strcpy(line, tmp);
+}
+
+/*
+** replaces each white space char with the ' ' char. does not allow sequences
+** two or more white spaces.
+*/           
+void ProcessWhiteSpace(char* line)
+{
+	char tmp[MAX_STR_LEN];
+	int i = 0, j = 0;
+	int lcs = 0;
+
+	/* convert all white spaces to ' ' */
+	while (!IsEndOfLine(line[i]))
+	{
+		if (isspace(line[i])) 
+		{
+			line[i] = ' ';
+		}
+
+		i++;
+	}
+
+	/* remove sequences of white space */
+	i = 0;
+	while (!IsEndOfLine(line[i]))
+	{
+		if (!lcs || line[i] != ' ') 
+		{
+		    tmp[j] = line[i];
+			j++;
+		}
+
+		if (line[i] == ' ') 
+		{
+		    lcs = 1;
+		}
+		else
+		{
+			lcs = 0;
+		}		
+
+		i++;	
+	}
+
+	tmp[j] = '\0';
+	strcpy(line, tmp);
+}
+
+void PreProcessLine(char* line)
+{
+	Trim(line);
+	ProcessWhiteSpace(line);
+}
 
 /******************************************************************************
 ** 	Stuff for FxsObjGroup
@@ -17,6 +155,26 @@ typedef struct FxsObjGroup_
 	FxsListPtr faces;
 }
 FxsObjGroup;
+
+const char* FxSObjGroupGetName(FxsObjGroupPtr group)
+{
+	if (!group) 
+	{
+	    return NULL;
+	}
+
+	return group->name;
+}
+
+FxsListPtr FxsObjGroupGetFaces(FxsObjGroupPtr group)
+{
+	if (!group) 
+	{
+	    return NULL;
+	}
+
+	return group->faces;
+}
 
 /*
 ** creates a group gives it a name and allocates a list for it.
@@ -65,8 +223,6 @@ static FxsObjGroupPtr FxsObjGroupCreate(const char* name)
 
 static void FxsObjGroupDestroy(FxsObjGroup* group)
 {
-	FxsListIteratorPtr it = NULL;
-
 	if (!group)
 	{
 	    return;
@@ -109,7 +265,27 @@ typedef struct FxsObjObject_
 }
 FxsObjObject;
 
-FxsObjObjectPtr FxsObjObjectCreate(const char* name)
+const char* FxsObjObjectGetName(FxsObjObjectPtr object)
+{
+	if (!object) 
+	{
+	    return NULL;
+	}
+
+	return object->name;
+}
+
+FxsListPtr FxsObjObjectGetGroups(FxsObjObjectPtr object)
+{
+	if (!object) 
+	{
+	    return NULL;
+	}
+
+	return object->groups;
+}
+
+static FxsObjObjectPtr FxsObjObjectCreate(const char* name)
 {
 	size_t nameLen = 0;
 	FxsObjObjectPtr o = (FxsObjObjectPtr)malloc(sizeof(FxsObjObject));
@@ -126,7 +302,7 @@ FxsObjObjectPtr FxsObjObjectCreate(const char* name)
 		nameLen = strlen(name) + 1;
 		o->name = (char*)malloc(nameLen);
 	
-		if (o->name) 
+		if (!o->name)
 		{
 	    	free(o);
 			return NULL;
@@ -151,7 +327,7 @@ FxsObjObjectPtr FxsObjObjectCreate(const char* name)
 	return o;
 }
 
-void FxsObjObjectDestroy(FxsObjObjectPtr obj)
+static void FxsObjObjectDestroy(FxsObjObjectPtr obj)
 {
 	FxsListIteratorPtr it = NULL;
 
@@ -183,17 +359,6 @@ void FxsObjObjectDestroy(FxsObjObjectPtr obj)
 
 	/* delete the obj */
 	free(obj);
-}
-
-int FxsObjObjectAddGroup(FxsObjObjectPtr obj, FxsObjGroupPtr group)
-{
-	if (!obj) 
-	{
-	    return 0;
-	}
-
-	FxsListPushBack(obj->groups, group);
-	return 1;
 }
 
 /******************************************************************************
@@ -256,6 +421,8 @@ static void CountGeometry(FxsObjFilePtr objFile, FILE* file)
 	}
 }
 
+
+
 static int LoadFile(FxsObjFilePtr obj, FILE* file)
 {
 	FxsObjObjectPtr currentObject = NULL;
@@ -264,6 +431,7 @@ static int LoadFile(FxsObjFilePtr obj, FILE* file)
 	FxsVector3* currentNormal = NULL;
 	FxsVector2* currentTexCoord = NULL;
 	FxsObjFace* currentFace = NULL;
+	FxsDictionaryPtr matIds = NULL;
 	unsigned int positionsLoaded = 0;
 	unsigned int normalsLoaded = 0;
 	unsigned int texCoordLoaded = 0;
@@ -271,13 +439,28 @@ static int LoadFile(FxsObjFilePtr obj, FILE* file)
 	char line[MAX_STR_LEN];
 	char name[MAX_STR_LEN];
 	int scres = 0;
+	int i = 0;
+	int currentMat = -1;
+	size_t nameLen = 0;
+	FxsNumberPtr matId = NULL;
+	FxsListPtr matNameList = NULL;
+	FxsListIteratorPtr matNameListIt = NULL;
+	char* matName = NULL;
+
+	/* create a dictionary for mananging the material (ids) */
+	matIds = FxsDictionaryCreateWithTableSize(20);
+	
+	if (!matIds) 
+	{
+	    goto loadError;
+	}
 
 	/* create the objects list */
 	obj->objects = FxsListCreate();
 
 	if (!obj->objects) 
 	{
-	   	return 0; 
+	   	goto loadError;
 	}
 
 	/* create default object and group */
@@ -285,25 +468,25 @@ static int LoadFile(FxsObjFilePtr obj, FILE* file)
 
 	if (!currentObject) 
 	{
-	    return 0;
+	    goto loadError;
 	}
 
 	currentGroup = FxsObjGroupCreate(NULL);
 
 	if (!currentGroup) 
 	{
-	   	return 0; 
+	   	goto loadError;
 	}
 
 	/* add default obj and group to the file */
-	if (FxsListPushBack(obj->objects, currentObject))
+	if (!FxsListPushBack(obj->objects, currentObject))
 	{
-		return 0;
+		goto loadError;
 	}
 	
-	if (FxsListPushBack(currentObject->groups, currentGroup))
+	if (!FxsListPushBack(currentObject->groups, currentGroup))
 	{
-		return 0;
+		goto loadError;
 	}
 
 	while (fgets(line, MAX_STR_LEN, file))
@@ -321,31 +504,31 @@ static int LoadFile(FxsObjFilePtr obj, FILE* file)
 			
 				if (!currentObject) 
 				{
-				    return 0;
+				    goto loadError;
 				}
 			
 				currentGroup = FxsObjGroupCreate(NULL);
 			
 				if (!currentGroup) 
 				{
-				   	return 0; 
+				   	goto loadError;
 				}
 
-				if (FxsListPushBack(obj->objects, currentObject))
+				if (!FxsListPushBack(obj->objects, currentObject))
 				{
-					return 0;
+					goto loadError;
 				}
 				
-				if (FxsListPushBack(currentObject->groups, currentGroup))
+				if (!FxsListPushBack(currentObject->groups, currentGroup))
 				{
-					return 0;
+					goto loadError;
 				}
 
 			}
 			else
 			{
 				ERR_MSG(line);
-				return 0;
+				goto loadError;
 			}
 		} 	
 
@@ -354,7 +537,7 @@ static int LoadFile(FxsObjFilePtr obj, FILE* file)
 		***********************************************************************/
 		if (strstr(line, "g ")) 
 		{
-			scres = sscanf(line, "o %s", name);
+			scres = sscanf(line, "g %s", name);
 			
 			if (scres == 1) 
 			{
@@ -362,18 +545,18 @@ static int LoadFile(FxsObjFilePtr obj, FILE* file)
 			
 				if (!currentGroup) 
 				{
-				   	return 0; 
+				   	goto loadError;
 				}
 				
-				if (FxsListPushBack(currentObject->groups, currentGroup))
+				if (!FxsListPushBack(currentObject->groups, currentGroup))
 				{
-					return 0;
+					goto loadError;
 				}
 			}
 			else
 			{
 				ERR_MSG(line);
-				return 0;
+				goto loadError;
 			}
 		}
 
@@ -398,21 +581,313 @@ static int LoadFile(FxsObjFilePtr obj, FILE* file)
 			else
 			{
 				ERR_MSG(line);
-				return 0;
+				goto loadError;
+			}
+		}
+
+		/**********************************************************************
+		** load a normal
+		***********************************************************************/
+		if (strstr(line, "vn ")) 
+		{
+			currentNormal = &(obj->normals[normalsLoaded]);
+			scres = sscanf(
+					line, 
+					"vn %f %f %f", 
+					&currentNormal->x,
+					&currentNormal->y,
+					&currentNormal->z
+				);
+
+			if (scres == 3) 
+			{
+				normalsLoaded++;    
+			}
+			else
+			{
+				ERR_MSG(line);
+				goto loadError;
+			}
+		}
+
+		/**********************************************************************
+		** load a tex coordinate
+		***********************************************************************/
+		if (strstr(line, "vt ")) 
+		{
+			currentTexCoord = &(obj->texCoords[texCoordLoaded]);
+			scres = sscanf(
+					line, 
+					"vt %f %f", 
+					&currentTexCoord->x,
+					&currentTexCoord->y
+				);
+
+			if (scres == 2) 
+			{
+				texCoordLoaded++;    
+			}
+			else
+			{
+				ERR_MSG(line);
+				goto loadError;
+			}
+		}
+
+		/**********************************************************************
+		** load a face
+		***********************************************************************/
+		if (strstr(line, "f ")) 
+		{
+			currentFace = &(obj->faces[facesLoaded]);
+			memset(currentFace, 0, sizeof(FxsObjFace));
+			currentFace->matIdx = currentMat;
+
+			scres = sscanf(
+					line, 
+					"f %d/%d/%d %d/%d/%d %d/%d/%d",
+					&currentFace->p0,
+					&currentFace->tc0,
+					&currentFace->n0,
+					&currentFace->p1,
+					&currentFace->tc1,
+					&currentFace->n1,
+					&currentFace->p2,
+					&currentFace->tc2,
+					&currentFace->n2
+				);
+
+			if (scres == 9) 
+			{
+			    facesLoaded++;
+				FxsObjGroupAddFace(currentGroup, currentFace);
+				continue;
 			}
 
+			scres = sscanf(
+					line, 
+					"f %d//%d %d//%d %d//%d",
+					&currentFace->p0,
+					&currentFace->n0,
+					&currentFace->p1,
+					&currentFace->n1,
+					&currentFace->p2,
+					&currentFace->n2
+				);
+
+			if (scres == 6) 
+			{
+			    facesLoaded++;
+				FxsObjGroupAddFace(currentGroup, currentFace);
+				continue;
+			}
+
+			scres = sscanf(
+					line, 
+					"f %d/%d %d/%d %d/%d",
+					&currentFace->p0,
+					&currentFace->tc0,
+					&currentFace->p1,
+					&currentFace->tc1,
+					&currentFace->p2,
+					&currentFace->tc2
+				);
+
+			if (scres == 6) 
+			{
+			    facesLoaded++;
+				FxsObjGroupAddFace(currentGroup, currentFace);
+				continue;
+			}
+			
+			scres = sscanf(
+					line, 
+					"f %d/%d/ %d/%d/ %d/%d/",
+					&currentFace->p0,
+					&currentFace->tc0,
+					&currentFace->p1,
+					&currentFace->tc1,
+					&currentFace->p2,
+					&currentFace->tc2
+				);
+
+			if (scres == 6) 
+			{
+			    facesLoaded++;
+				FxsObjGroupAddFace(currentGroup, currentFace);
+				continue;
+			}
+
+			scres = sscanf(
+					line, 
+					"f %d %d %d",
+					&currentFace->p0,
+					&currentFace->p1,
+					&currentFace->p2
+				);
+
+			if (scres == 3) 
+			{
+			    facesLoaded++;
+				FxsObjGroupAddFace(currentGroup, currentFace);
+				continue;
+			}
+
+			ERR_MSG(line);
+			goto loadError;
 		}
+
+
+		/**********************************************************************
+		** load name of the mtl file
+		***********************************************************************/
+		if (strstr(line, "mtllib ")) 
+		{
+		   	scres = sscanf(line, "mtllib %s", name); 
+
+			if (scres == 1) 
+			{
+				nameLen = strlen(name) + 1;
+			    obj->mtlfilename = (char*)malloc(nameLen);
+				
+				if (!obj->mtlfilename)
+				{
+				    goto loadError;
+				}
+
+				strcpy(obj->mtlfilename, name);
+			}
+			else
+			{
+				ERR_MSG(line);
+				goto loadError;
+			}
+		}
+
+		/**********************************************************************
+		** load name for the material and associate it with an index 
+		***********************************************************************/
+		if (strstr(line, "usemtl "))
+		{
+			scres = sscanf(line, "usemtl %s", name);
+		
+			if (scres == 1) 
+			{
+				if (FxsDictionaryContains(matIds, name))
+				{
+					matId = FxsDictionaryFind(matIds, name);	
+					currentMat = FxsNumberAsInt(matId);
+				}
+				else
+				{
+					currentMat = (int)FxsDictionaryGetSize(matIds);
+					matId = FxsNumberCreateWithInt(currentMat);
+
+					if (!matId) 
+					{
+						ERR_MSG(line);
+					    goto loadError;
+					}
+
+					FxsDictionaryInsert(
+						matIds, 
+						name, 
+						matId
+					);	
+				}
+			}
+			else
+			{
+				ERR_MSG(line);
+                goto loadError;
+			}
+		}		
+
 	
-	}	
+	}	/* of while */
+
+	/* update the face indices */
+	for (i = 0; i < obj->numFaces; i++) 
+	{
+	   	obj->faces[i].p0--; 
+	   	obj->faces[i].tc0--; 
+	   	obj->faces[i].n0--; 
+	   	obj->faces[i].p1--; 
+	   	obj->faces[i].tc1--; 
+	   	obj->faces[i].n1--; 
+	   	obj->faces[i].p2--; 
+	   	obj->faces[i].tc2--; 
+	   	obj->faces[i].n2--; 
+	}
+
+	/* save the names of the materials */
+	obj->numMaterials = (unsigned int)FxsDictionaryGetSize(matIds);
+
+    if (obj->numMaterials)
+    {
+        matNameList = FxsDictionaryGetKeys(matIds);
+
+        matNameListIt = FxsListIteratorCreate(
+                matNameList,
+                FXS_LIST_FRONT,
+                FXS_LIST_FRONT_TO_BACK
+            );
+
+
+        obj->materialNames = (char**)malloc(sizeof(char**)*obj->numMaterials);
+
+        if (!obj->materialNames)
+        {
+            goto loadError;
+        }
+
+        memset(obj->materialNames, 0, sizeof(char**)*obj->numMaterials);
+
+        while (FxsListIteratorHasNext(matNameListIt))
+        {
+            matName = FxsListIteratorNext(matNameListIt);
+            nameLen = strlen(matName) + 1;
+            matId = FxsDictionaryFind(matIds, matName);
+            obj->materialNames[FxsNumberAsInt(matId)] = (char*)malloc(nameLen);
+            strcpy(obj->materialNames[FxsNumberAsInt(matId)], matName);
+            FxsNumberDestroy(&matId);
+        }
+
+        FxsListIteratorDestroy(&matNameListIt);
+    }
+
+
+	FxsDictionaryDestroy(&matIds);
 
 	return 1;
+
+loadError:
+
+    matNameList = FxsDictionaryGetKeys(matIds);
+    matNameListIt = FxsListIteratorCreate(
+            matNameList,
+            FXS_LIST_FRONT,
+            FXS_LIST_FRONT_TO_BACK
+        );
+
+    while (FxsListIteratorHasNext(matNameListIt))
+    {
+        matName = FxsListIteratorNext(matNameListIt);
+        nameLen = strlen(matName) + 1;
+        matId = FxsDictionaryFind(matIds, matName);
+        FxsNumberDestroy(&matId);
+    }
+
+	FxsDictionaryDestroy(&matIds);
+
+    return 0;
 }
 
 FxsObjFilePtr FxsObjFileCreate(const char* filename)
 {
 	FILE* file = NULL;
 	FxsObjFilePtr objFile = NULL;
-	int succ = 1;     				/* assume we are succesful */
+//	int succ = 1;     				/* assume we are succesful */
 	size_t strLen = 0;
 	size_t memOffset = 0;  			/* memory offset into the pool */
 
@@ -511,4 +986,156 @@ error:
 	return NULL;
 }
 
+void FxsObjFileDestroy(FxsObjFilePtr* objFile)
+{
+	int i = 0;
+	FxsListIteratorPtr li = NULL;
 
+	if (!objFile || !(*objFile)) 
+	{
+	   	return; 
+	}
+
+	/* release the memory pool */
+	if ((*objFile)->pool) 
+	{
+	    free((*objFile)->pool);
+	}
+
+	/* release objects */
+	li = FxsListIteratorCreate(
+			(*objFile)->objects, 
+			FXS_LIST_FRONT, 
+			FXS_LIST_FRONT_TO_BACK
+		);
+
+	if (!li) 
+	{
+	   	printf("Could not release .obj file\n");
+		return;
+	}
+
+	while (FxsListIteratorHasNext(li))
+	{
+		FxsObjObjectDestroy(FxsListIteratorNext(li));
+	}
+
+	FxsListIteratorDestroy(&li);
+	FxsListDestroy(&(*objFile)->objects);
+
+    /* release material names */
+	if ((*objFile)->materialNames) 
+	{
+		for (i = 0; i < (*objFile)->numMaterials; i++) 
+	    {
+	    	if ((*objFile)->materialNames[i]) 
+	       	{
+	       		free((*objFile)->materialNames[i]); 	 
+	       	}
+	    }
+		
+		free((*objFile)->materialNames);
+	}
+
+	/* release .mtl filename */
+	if ((*objFile)->mtlfilename) 
+	{
+	    free((*objFile)->mtlfilename);
+	}
+
+	/* release the filename */
+	if ((*objFile)->filename) 
+	{
+	    free((*objFile)->filename);
+	}
+
+	/* free the actual object file */
+	free(*objFile);
+	objFile = NULL;
+}
+
+int FxsObjFileGetPosition(FxsObjFilePtr file, FxsVector3* pos, unsigned int id)
+{
+	if (!file || file->numPositions <= id) 
+	{
+	    return 0;
+	}
+
+	*pos = file->positions[id];
+
+	return 1;
+}
+
+int FxsObjFileGetNormal(FxsObjFilePtr file, FxsVector3* normal, unsigned int id)
+{
+	if (!file || file->numNormals <= id) 
+	{
+	    return 0;
+	}
+
+	*normal = file->normals[id];
+
+	return 1;
+}
+
+int FxsObjFileGetTexCoord(FxsObjFilePtr file, FxsVector2* tc, unsigned int id)
+{
+	if (!file || file->numTexCoords) 
+	{
+	   	return 0; 
+	}
+
+	*tc = file->texCoords[id];
+
+	return 1;
+}
+
+const char* FxsObjFileGetMaterialName(FxsObjFilePtr file, unsigned int id)
+{
+	if (!file || file->numMaterials <= id) 
+	{
+	    return NULL;
+	}
+
+	return file->materialNames[id];
+}
+
+const char* FxsObjFileGetMtlName(FxsObjFilePtr file)
+{
+	return file->mtlfilename;
+}
+
+unsigned int FxsObjFileGetNumPositions(FxsObjFilePtr file)
+{
+	if (!file) 
+	{
+	    return 0; 
+	}
+
+	return file->numPositions; 
+}
+
+unsigned int FxsObjFileGetNumTexCoords(FxsObjFilePtr file)
+{
+	if (!file) 
+	{
+	    return 0; 
+	}
+
+	return file->numTexCoords; 
+}
+
+unsigned int FxsObjFileGetNumNormals(FxsObjFilePtr file)
+{
+	if (!file) 
+	{
+	    return 0; 
+	}
+
+	return file->numNormals; 
+}
+
+FxsListPtr FxsObjFileGetObjects(FxsObjFilePtr file)
+{
+	return file->objects;
+}

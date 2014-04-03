@@ -218,8 +218,6 @@ int FxsDictionaryRemove(FxsDictionaryPtr dict, const char* key)
 		free(bucket->key);
 		free(bucket);
 
-        dict->size--;
-
 		return 1;
 	}
 
@@ -243,7 +241,9 @@ int FxsDictionaryRemove(FxsDictionaryPtr dict, const char* key)
 		prevBucket = bucket;
 		bucket = bucket->next;
 	}
-
+    
+	dict->size--;
+	
 	return 0;	
 }
 
@@ -346,4 +346,9 @@ FxsListPtr FxsDictionaryGetKeys(FxsDictionaryPtr dict)
 	}
 
 	return dict->keys;
+}
+
+size_t FxsDictionaryGetSize(FxsDictionaryPtr dict)
+{
+	return dict->size;
 }

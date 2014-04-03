@@ -19,7 +19,7 @@ typedef struct FxsObjMtlFile_
 }
 FxsObjMtlFile;
 
-int IsBlankLine(char* line)
+static int IsBlankLine(char* line)
 {
 	int i = 0;
 
@@ -36,7 +36,7 @@ int IsBlankLine(char* line)
 	return 1;
 }
 
-char* Trim(char* line)
+static char* Trim(char* line)
 {
 	int i = 0;
 	char* l = line;
@@ -61,7 +61,7 @@ char* Trim(char* line)
 	return l;
 }
 
-int CountWords(char* line)
+static int CountWords(char* line)
 {
 	int i = 0;
 	char* str = NULL;
@@ -77,7 +77,7 @@ int CountWords(char* line)
 	return i;
 }
 
-int CountMaterials(FILE* f)
+static int CountMaterials(FILE* f)
 {
 	char line[MAX_STR_LENGTH];
 	char* pline = NULL;

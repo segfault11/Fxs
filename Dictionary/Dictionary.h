@@ -49,7 +49,15 @@ FxsDictionaryPtr FxsDictionaryCreateWithTableSize(size_t tableSize);
 */ 
 int FxsDictionaryInsert(FxsDictionaryPtr dict, const char* key, void* value);
 
-
+/*
+** Checks if the dictionary contains a value for a given key.
+**
+** @param dict Dictionary that we want to check.
+** @param key The key we want to check for.
+**
+** @return 1 if the dictionary contains the key (and hense the value), 
+**         0 otherwise.
+*/ 
 int FxsDictionaryContains(FxsDictionaryPtr dict, const char* key);
 
 /*
@@ -94,6 +102,8 @@ void FxsDictionaryDestroy(FxsDictionaryPtr* dict);
 */ 
 FxsListPtr FxsDictionaryGetKeys(FxsDictionaryPtr dict);
 
+
+size_t FxsDictionaryGetSize(FxsDictionaryPtr dict);
 
 
 #ifdef __cplusplus
