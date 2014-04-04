@@ -27,7 +27,7 @@ int main(int argc, const char * argv[])
     unsigned int numTexCoords = 0;
     int i = 0;
     
-    file = FxsObjFileCreate("LighthouseColored.obj");
+    file = FxsObjFileCreateWithFile("LighthouseColored.obj");
     
     if (!file)
     {

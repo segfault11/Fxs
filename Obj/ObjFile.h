@@ -113,7 +113,7 @@ FxsListPtr FxsObjFileGetObjects(FxsObjFilePtr file);
 ** @param filename The filename of the .obj file we wish to load, as a C ptr.
 ** @return A FxsObjFilePtr or NULL of loading the file failed.
 */ 
-FxsObjFilePtr FxsObjFileCreate(const char* filename);
+FxsObjFilePtr FxsObjFileCreateWithFile(const char* filename);
 
 /*
 ** Destroys an FxsObjFile and all resources associated with it.

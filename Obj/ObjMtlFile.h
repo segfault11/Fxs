@@ -27,15 +27,69 @@ typedef struct FxsObjMtlFile_* FxsObjMtlFilePtr;
 typedef struct FxsObjMaterial_* FxsObjMaterialPtr;
 
 /*
+** Gets an element of the material attribute array. The material attribute
+** is identified by its name the element is identified by its index. E.g.
+** if the material attribute was defined by the following line in the mtl file
+**
+** 		Ka 0.640000 0.042222 0.034073
+**
+** to get the the 3rd element of the attribute "Ka", one would have to call
+**
+** 		FxsObjMaterialGetAttributeElementAsString(nat, "Ka", 2);
+**
+** @param material The material we want the attribute information from.
+** @param name  The name if the attribute.
+** @param idx The index for the element in the attribute array,
+** @return The element in form of a string, or NULL if something goes wrong.
+*/ 
+const char* FxsObjMaterialGetAttributeElementAsString(
+	FxsObjMaterialPtr material,
+	const char* name, 
+	unsigned int idx
+);
+
+/*
+** Gets an element of the material attribute array. The material attribute
+** is identified by its name the element is identified by its index. E.g.
+** if the material attribute was defined by the following line in the mtl file
+**
+** 		Ka 0.640000 0.042222 0.034073
+**
+** to get the the 3rd element of the attribute "Ka", one would have to call
+**
+** 		FxsObjMaterialGetAttributeElementAsString(nat, "Ka", 2);
+**
+** @param material The material we want the attribute information from.
+** @param name  The name if the attribute.
+** @param idx The index for the element in the attribute array,
+** @return The element in form of a float, or FLT_MAX if something goes wrong.
+*/
+float FxsObjMaterialGetAttributeElementAsFloat(
+	FxsObjMaterialPtr material,
+	const char* name, 
+	unsigned int idx
+);
+
+/*
+** Gets the number of elements for the attribute of a material.
+**
+** @param material The material that contains the element.
+** @param name The name of the attribute would would like to know the # of 
+**        elements
+** @return The number of elements for an material attribute.
+*/ 
+unsigned int FxsObjMaterialGetAttributeSize(
+	FxsObjMaterialPtr material,
+	const char* name
+);
+
+/*
 ** Creates the mtl file from a file referenced by filename.
 **
 ** @param mtlfile The pointer to the mtl file handle to be created.
 ** @param filename Filename of the mtl file.
 */ 
-int FxsObjMtlFileCreateWithFile(
-	FxsObjMtlFilePtr* mtlfile, 
-	const char* filename
-);
+FxsObjMtlFilePtr FxsObjMtlFileCreateWithFile(const char* filename);
 
 /*
 ** Releases the material file and all its materials.
@@ -59,16 +113,7 @@ FxsObjMaterialPtr FxsObjMtlFileGetMaterialWithName(
 	const char* name
 );
 
-float FxsObjMaterialGetComponentWithAttributeAsFloat(
-	FxsObjMaterialPtr material,
-	const char* name, 
-	unsigned int idx
-);
 
-unsigned int FxsObjMaterialGetAttributeSize(
-	FxsObjMaterialPtr material,
-	const char* name
-);
 	
 #ifdef __cplusplus
 }

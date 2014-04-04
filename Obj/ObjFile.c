@@ -883,7 +883,7 @@ loadError:
     return 0;
 }
 
-FxsObjFilePtr FxsObjFileCreate(const char* filename)
+FxsObjFilePtr FxsObjFileCreateWithFile(const char* filename)
 {
 	FILE* file = NULL;
 	FxsObjFilePtr objFile = NULL;
