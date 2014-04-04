@@ -6,10 +6,10 @@ extern "C"
 {
 #endif
 
-#include <Fxs/Math/Vector2.h>
-#include <Fxs/Math/Vector3.h>
-#include <Fxs/Math/Quaternion.h>
-#include <Fxs/Math/Matrix4.h>
+#include "../Math/Vector2.h"
+#include "../Math/Vector3.h"
+#include "../Math/Quaternion.h"
+#include "../Math/Matrix4.h"
 #include "MD5Animation.h"
 
 /*

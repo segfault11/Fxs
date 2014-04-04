@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define MAX_STR_LENGTH 1024
+#define MAX_STR_LENGTH 256
 
 /*
 ** Currently, the internal representation for a number is a string.

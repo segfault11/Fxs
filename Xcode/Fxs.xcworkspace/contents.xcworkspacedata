@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:FxsOpenGL/FxsOpenGL.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Fxs/Fxs.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MtlFileTest/MtlFileTest.xcodeproj">
    </FileRef>
    <FileRef

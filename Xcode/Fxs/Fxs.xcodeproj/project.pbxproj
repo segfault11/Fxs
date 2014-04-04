@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A80A498118EE902300F2F9B2 /* Dictionary.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A495218EE902300F2F9B2 /* Dictionary.c */; };
+		A80A498218EE902300F2F9B2 /* Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A495318EE902300F2F9B2 /* Dictionary.h */; };
+		A80A498718EE902300F2F9B2 /* List.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A495B18EE902300F2F9B2 /* List.c */; };
+		A80A498818EE902300F2F9B2 /* List.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A495C18EE902300F2F9B2 /* List.h */; };
+		A80A498918EE902300F2F9B2 /* IntersectionTriBox.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A495E18EE902300F2F9B2 /* IntersectionTriBox.c */; };
+		A80A498A18EE902300F2F9B2 /* IntersectionTriBox.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A495F18EE902300F2F9B2 /* IntersectionTriBox.h */; };
+		A80A498B18EE902300F2F9B2 /* Matrix2.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496018EE902300F2F9B2 /* Matrix2.c */; };
+		A80A498C18EE902300F2F9B2 /* Matrix2.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496118EE902300F2F9B2 /* Matrix2.h */; };
+		A80A498D18EE902300F2F9B2 /* Matrix3.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496218EE902300F2F9B2 /* Matrix3.c */; };
+		A80A498E18EE902300F2F9B2 /* Matrix3.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496318EE902300F2F9B2 /* Matrix3.h */; };
+		A80A498F18EE902300F2F9B2 /* Matrix4.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496418EE902300F2F9B2 /* Matrix4.c */; };
+		A80A499018EE902300F2F9B2 /* Matrix4.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496518EE902300F2F9B2 /* Matrix4.h */; };
+		A80A499118EE902300F2F9B2 /* Quaternion.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496618EE902300F2F9B2 /* Quaternion.c */; };
+		A80A499218EE902300F2F9B2 /* Quaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496718EE902300F2F9B2 /* Quaternion.h */; };
+		A80A499318EE902300F2F9B2 /* Vector2.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496818EE902300F2F9B2 /* Vector2.c */; };
+		A80A499418EE902300F2F9B2 /* Vector2.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496918EE902300F2F9B2 /* Vector2.h */; };
+		A80A499518EE902300F2F9B2 /* Vector3.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496A18EE902300F2F9B2 /* Vector3.c */; };
+		A80A499618EE902300F2F9B2 /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496B18EE902300F2F9B2 /* Vector3.h */; };
+		A80A499718EE902300F2F9B2 /* Vector4.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496C18EE902300F2F9B2 /* Vector4.c */; };
+		A80A499818EE902300F2F9B2 /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496D18EE902300F2F9B2 /* Vector4.h */; };
+		A80A499918EE902300F2F9B2 /* MD5Animation.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496F18EE902300F2F9B2 /* MD5Animation.c */; };
+		A80A499A18EE902300F2F9B2 /* MD5Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A497018EE902300F2F9B2 /* MD5Animation.h */; };
+		A80A499B18EE902300F2F9B2 /* MD5Mesh.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A497118EE902300F2F9B2 /* MD5Mesh.c */; };
+		A80A499C18EE902300F2F9B2 /* MD5Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A497218EE902300F2F9B2 /* MD5Mesh.h */; };
+		A80A499D18EE902300F2F9B2 /* Number.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A497418EE902300F2F9B2 /* Number.c */; };
+		A80A499E18EE902300F2F9B2 /* Number.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A497518EE902300F2F9B2 /* Number.h */; };
+		A80A49A318EE902300F2F9B2 /* ObjMtlFile.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A497B18EE902300F2F9B2 /* ObjMtlFile.c */; };
+		A80A49A418EE902300F2F9B2 /* ObjMtlFile.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A497C18EE902300F2F9B2 /* ObjMtlFile.h */; };
+		A80A49AA18EE90BD00F2F9B2 /* ObjFile.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A49A818EE90BD00F2F9B2 /* ObjFile.c */; };
+		A80A49AB18EE90BD00F2F9B2 /* ObjFile.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A49A918EE90BD00F2F9B2 /* ObjFile.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A80A494A18EE8FFD00F2F9B2 /* libFxs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFxs.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A80A495218EE902300F2F9B2 /* Dictionary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Dictionary.c; sourceTree = "<group>"; };
+		A80A495318EE902300F2F9B2 /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
+		A80A495B18EE902300F2F9B2 /* List.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = List.c; sourceTree = "<group>"; };
+		A80A495C18EE902300F2F9B2 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		A80A495E18EE902300F2F9B2 /* IntersectionTriBox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IntersectionTriBox.c; sourceTree = "<group>"; };
+		A80A495F18EE902300F2F9B2 /* IntersectionTriBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntersectionTriBox.h; sourceTree = "<group>"; };
+		A80A496018EE902300F2F9B2 /* Matrix2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Matrix2.c; sourceTree = "<group>"; };
+		A80A496118EE902300F2F9B2 /* Matrix2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix2.h; sourceTree = "<group>"; };
+		A80A496218EE902300F2F9B2 /* Matrix3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Matrix3.c; sourceTree = "<group>"; };
+		A80A496318EE902300F2F9B2 /* Matrix3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix3.h; sourceTree = "<group>"; };
+		A80A496418EE902300F2F9B2 /* Matrix4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Matrix4.c; sourceTree = "<group>"; };
+		A80A496518EE902300F2F9B2 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
+		A80A496618EE902300F2F9B2 /* Quaternion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Quaternion.c; sourceTree = "<group>"; };
+		A80A496718EE902300F2F9B2 /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
+		A80A496818EE902300F2F9B2 /* Vector2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Vector2.c; sourceTree = "<group>"; };
+		A80A496918EE902300F2F9B2 /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
+		A80A496A18EE902300F2F9B2 /* Vector3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Vector3.c; sourceTree = "<group>"; };
+		A80A496B18EE902300F2F9B2 /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
+		A80A496C18EE902300F2F9B2 /* Vector4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Vector4.c; sourceTree = "<group>"; };
+		A80A496D18EE902300F2F9B2 /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector4.h; sourceTree = "<group>"; };
+		A80A496F18EE902300F2F9B2 /* MD5Animation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MD5Animation.c; sourceTree = "<group>"; };
+		A80A497018EE902300F2F9B2 /* MD5Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Animation.h; sourceTree = "<group>"; };
+		A80A497118EE902300F2F9B2 /* MD5Mesh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MD5Mesh.c; sourceTree = "<group>"; };
+		A80A497218EE902300F2F9B2 /* MD5Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Mesh.h; sourceTree = "<group>"; };
+		A80A497418EE902300F2F9B2 /* Number.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Number.c; sourceTree = "<group>"; };
+		A80A497518EE902300F2F9B2 /* Number.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Number.h; sourceTree = "<group>"; };
+		A80A497B18EE902300F2F9B2 /* ObjMtlFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ObjMtlFile.c; sourceTree = "<group>"; };
+		A80A497C18EE902300F2F9B2 /* ObjMtlFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjMtlFile.h; sourceTree = "<group>"; };
+		A80A49A818EE90BD00F2F9B2 /* ObjFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ObjFile.c; sourceTree = "<group>"; };
+		A80A49A918EE90BD00F2F9B2 /* ObjFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjFile.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A80A494718EE8FFD00F2F9B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A80A494118EE8FFD00F2F9B2 = {
+			isa = PBXGroup;
+			children = (
+				A80A495118EE902300F2F9B2 /* Dictionary */,
+				A80A495A18EE902300F2F9B2 /* List */,
+				A80A495D18EE902300F2F9B2 /* Math */,
+				A80A496E18EE902300F2F9B2 /* MD5 */,
+				A80A497318EE902300F2F9B2 /* Number */,
+				A80A497618EE902300F2F9B2 /* Obj */,
+				A80A494B18EE8FFD00F2F9B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A80A494B18EE8FFD00F2F9B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A80A494A18EE8FFD00F2F9B2 /* libFxs.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A80A495118EE902300F2F9B2 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				A80A495218EE902300F2F9B2 /* Dictionary.c */,
+				A80A495318EE902300F2F9B2 /* Dictionary.h */,
+			);
+			name = Dictionary;
+			path = ../../Dictionary;
+			sourceTree = "<group>";
+		};
+		A80A495A18EE902300F2F9B2 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A80A495B18EE902300F2F9B2 /* List.c */,
+				A80A495C18EE902300F2F9B2 /* List.h */,
+			);
+			name = List;
+			path = ../../List;
+			sourceTree = "<group>";
+		};
+		A80A495D18EE902300F2F9B2 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				A80A495E18EE902300F2F9B2 /* IntersectionTriBox.c */,
+				A80A495F18EE902300F2F9B2 /* IntersectionTriBox.h */,
+				A80A496018EE902300F2F9B2 /* Matrix2.c */,
+				A80A496118EE902300F2F9B2 /* Matrix2.h */,
+				A80A496218EE902300F2F9B2 /* Matrix3.c */,
+				A80A496318EE902300F2F9B2 /* Matrix3.h */,
+				A80A496418EE902300F2F9B2 /* Matrix4.c */,
+				A80A496518EE902300F2F9B2 /* Matrix4.h */,
+				A80A496618EE902300F2F9B2 /* Quaternion.c */,
+				A80A496718EE902300F2F9B2 /* Quaternion.h */,
+				A80A496818EE902300F2F9B2 /* Vector2.c */,
+				A80A496918EE902300F2F9B2 /* Vector2.h */,
+				A80A496A18EE902300F2F9B2 /* Vector3.c */,
+				A80A496B18EE902300F2F9B2 /* Vector3.h */,
+				A80A496C18EE902300F2F9B2 /* Vector4.c */,
+				A80A496D18EE902300F2F9B2 /* Vector4.h */,
+			);
+			name = Math;
+			path = ../../Math;
+			sourceTree = "<group>";
+		};
+		A80A496E18EE902300F2F9B2 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				A80A496F18EE902300F2F9B2 /* MD5Animation.c */,
+				A80A497018EE902300F2F9B2 /* MD5Animation.h */,
+				A80A497118EE902300F2F9B2 /* MD5Mesh.c */,
+				A80A497218EE902300F2F9B2 /* MD5Mesh.h */,
+			);
+			name = MD5;
+			path = ../../MD5;
+			sourceTree = "<group>";
+		};
+		A80A497318EE902300F2F9B2 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				A80A497418EE902300F2F9B2 /* Number.c */,
+				A80A497518EE902300F2F9B2 /* Number.h */,
+			);
+			name = Number;
+			path = ../../Number;
+			sourceTree = "<group>";
+		};
+		A80A497618EE902300F2F9B2 /* Obj */ = {
+			isa = PBXGroup;
+			children = (
+				A80A49A818EE90BD00F2F9B2 /* ObjFile.c */,
+				A80A49A918EE90BD00F2F9B2 /* ObjFile.h */,
+				A80A497B18EE902300F2F9B2 /* ObjMtlFile.c */,
+				A80A497C18EE902300F2F9B2 /* ObjMtlFile.h */,
+			);
+			name = Obj;
+			path = ../../Obj;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A80A494818EE8FFD00F2F9B2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A80A499C18EE902300F2F9B2 /* MD5Mesh.h in Headers */,
+				A80A499018EE902300F2F9B2 /* Matrix4.h in Headers */,
+				A80A498818EE902300F2F9B2 /* List.h in Headers */,
+				A80A499818EE902300F2F9B2 /* Vector4.h in Headers */,
+				A80A499418EE902300F2F9B2 /* Vector2.h in Headers */,
+				A80A499218EE902300F2F9B2 /* Quaternion.h in Headers */,
+				A80A498A18EE902300F2F9B2 /* IntersectionTriBox.h in Headers */,
+				A80A498218EE902300F2F9B2 /* Dictionary.h in Headers */,
+				A80A499A18EE902300F2F9B2 /* MD5Animation.h in Headers */,
+				A80A499E18EE902300F2F9B2 /* Number.h in Headers */,
+				A80A49A418EE902300F2F9B2 /* ObjMtlFile.h in Headers */,
+				A80A498C18EE902300F2F9B2 /* Matrix2.h in Headers */,
+				A80A499618EE902300F2F9B2 /* Vector3.h in Headers */,
+				A80A498E18EE902300F2F9B2 /* Matrix3.h in Headers */,
+				A80A49AB18EE90BD00F2F9B2 /* ObjFile.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A80A494918EE8FFD00F2F9B2 /* Fxs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80A494E18EE8FFD00F2F9B2 /* Build configuration list for PBXNativeTarget "Fxs" */;
+			buildPhases = (
+				A80A494618EE8FFD00F2F9B2 /* Sources */,
+				A80A494718EE8FFD00F2F9B2 /* Frameworks */,
+				A80A494818EE8FFD00F2F9B2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fxs;
+			productName = Fxs;
+			productReference = A80A494A18EE8FFD00F2F9B2 /* libFxs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A80A494218EE8FFD00F2F9B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Arno in Wolde Luebke";
+			};
+			buildConfigurationList = A80A494518EE8FFD00F2F9B2 /* Build configuration list for PBXProject "Fxs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A80A494118EE8FFD00F2F9B2;
+			productRefGroup = A80A494B18EE8FFD00F2F9B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A80A494918EE8FFD00F2F9B2 /* Fxs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A80A494618EE8FFD00F2F9B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A80A499118EE902300F2F9B2 /* Quaternion.c in Sources */,
+				A80A498B18EE902300F2F9B2 /* Matrix2.c in Sources */,
+				A80A498918EE902300F2F9B2 /* IntersectionTriBox.c in Sources */,
+				A80A498F18EE902300F2F9B2 /* Matrix4.c in Sources */,
+				A80A499718EE902300F2F9B2 /* Vector4.c in Sources */,
+				A80A498D18EE902300F2F9B2 /* Matrix3.c in Sources */,
+				A80A499918EE902300F2F9B2 /* MD5Animation.c in Sources */,
+				A80A49A318EE902300F2F9B2 /* ObjMtlFile.c in Sources */,
+				A80A499518EE902300F2F9B2 /* Vector3.c in Sources */,
+				A80A499318EE902300F2F9B2 /* Vector2.c in Sources */,
+				A80A499B18EE902300F2F9B2 /* MD5Mesh.c in Sources */,
+				A80A498118EE902300F2F9B2 /* Dictionary.c in Sources */,
+				A80A498718EE902300F2F9B2 /* List.c in Sources */,
+				A80A499D18EE902300F2F9B2 /* Number.c in Sources */,
+				A80A49AA18EE90BD00F2F9B2 /* ObjFile.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A80A494C18EE8FFD00F2F9B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A80A494D18EE8FFD00F2F9B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A80A494F18EE8FFD00F2F9B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A80A495018EE8FFD00F2F9B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A80A494518EE8FFD00F2F9B2 /* Build configuration list for PBXProject "Fxs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A80A494C18EE8FFD00F2F9B2 /* Debug */,
+				A80A494D18EE8FFD00F2F9B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A80A494E18EE8FFD00F2F9B2 /* Build configuration list for PBXNativeTarget "Fxs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A80A494F18EE8FFD00F2F9B2 /* Debug */,
+				A80A495018EE8FFD00F2F9B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A80A494218EE8FFD00F2F9B2 /* Project object */;
+}

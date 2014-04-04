@@ -6,8 +6,8 @@ extern "C"
 {
 #endif
 
-#include <Fxs/Math/Vector3.h>
-#include <Fxs/Math/Quaternion.h>
+#include "../Math/Vector3.h"
+#include "../Math/Quaternion.h"
 
 /*
 ** Bitflags that indicate the components of the Animation joint.
