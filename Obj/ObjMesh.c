@@ -9,7 +9,7 @@
 #define ERR_MSG(X) printf("In file: %s line: %d\n\t%s\n", __FILE__, __LINE__, X);
 static char errMsg[1024];
 
-void ReadMaterialName(char* materialName, char* line)
+static void ReadMaterialName(char* materialName, char* line)
 {
 	int i = 0;
 	char c = 0;	

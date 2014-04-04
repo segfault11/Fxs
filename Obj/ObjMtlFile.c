@@ -15,7 +15,7 @@
 **  Line processing utils
 ******************************************************************************/
 
-int IsEndOfLine(char c)
+static int IsEndOfLine(char c)
 {
 	if (c == '\r' || c == '\n' || c == EOF || c == '\0') 
 	{
@@ -33,7 +33,7 @@ int IsEndOfLine(char c)
 ** since they should be allowed to be not only one string). The line should 
 ** be trimmed before calling this function.
 */ 
-void GetRestOfLine(char* dst, const char* src)
+static void GetRestOfLine(char* dst, const char* src)
 {
 	int i = 0;
 	int j = 0;
@@ -64,7 +64,7 @@ void GetRestOfLine(char* dst, const char* src)
 /*
 ** Trims the line from both ends.
 */ 
-void Trim(char* line)
+static void Trim(char* line)
 {
 	char tmp[MAX_STR_LEN];
 	int i = 0, j = 0, k = 0;
@@ -98,7 +98,7 @@ void Trim(char* line)
 ** replaces each white space char with the ' ' char. does not allow sequences
 ** two or more white spaces.
 */           
-void ProcessWhiteSpace(char* line)
+static void ProcessWhiteSpace(char* line)
 {
 	char tmp[MAX_STR_LEN];
 	int i = 0, j = 0;
@@ -141,7 +141,7 @@ void ProcessWhiteSpace(char* line)
 	strcpy(line, tmp);
 }
 
-void PreProcessLine(char* line)
+static void PreProcessLine(char* line)
 {
 	Trim(line);
 	ProcessWhiteSpace(line);
@@ -180,10 +180,13 @@ FxsObjMaterialAttribute;
 */ 
 static unsigned int CountWords(char* line)
 {
+    char tmpline[MAX_STR_LEN];
 	unsigned int i = 0;
 	char* str = NULL;
+    
+    strcpy(tmpline, line);
 
-	str = strtok(line, " \t");
+	str = strtok(tmpline, " \t");
 
 	while (str)
 	{
@@ -199,9 +202,11 @@ FxsObjMaterialAttribute* FxsObjMaterialAttributeCreateWithLine(char* line)
 	unsigned int numWords = CountWords(line);
 	FxsObjMaterialAttribute* attr = NULL;	
 	char* str = NULL;
+    char tmpline[MAX_STR_LEN];
 	int i = 0, j = 0;	
 
 	assert(numWords > 0);
+    strcpy(tmpline, line);
 
 	attr = (FxsObjMaterialAttribute*)malloc(sizeof(FxsObjMaterialAttribute));
 
@@ -212,10 +217,10 @@ FxsObjMaterialAttribute* FxsObjMaterialAttributeCreateWithLine(char* line)
 
 	memset(attr, 0, sizeof(FxsObjMaterialAttribute));
 
-	str = strtok(line, " \t");
+
 
 	/* get name of the element */
-	str = strtok(NULL, " \t");
+	str = strtok(tmpline, " \t");
 	attr->name = (char*)malloc(strlen(str) + 1);
 
 	if (!attr->name) 
@@ -223,6 +228,8 @@ FxsObjMaterialAttribute* FxsObjMaterialAttributeCreateWithLine(char* line)
 		free(attr);
 		return NULL; 
 	}
+
+    strcpy(attr->name, str);
 
 	if (numWords == 1) /* attribute does not have any elements */
 	{
@@ -240,9 +247,15 @@ FxsObjMaterialAttribute* FxsObjMaterialAttributeCreateWithLine(char* line)
 		return NULL;
 	}
 
-	while (str) 
+	while (1)
 	{
 		str = strtok(NULL, " \t");
+        
+        if (!str)
+        {
+            break;
+        }
+        
 		attr->elements[i] = (char*)malloc(strlen(str) + 1);
 
 		if (!attr->elements[i]) 
@@ -313,9 +326,11 @@ FxsObjMaterialPtr FxsObjMaterialCreate()
 
 void FxsObjMaterialDestroy(FxsObjMaterialPtr mat)
 {
-	FxsListPtr keyList;
-	FxsListIteratorPtr attrIterator;
-	
+	FxsListPtr keyList = NULL;
+	FxsListIteratorPtr attrIterator = NULL;
+    FxsObjMaterialAttribute* attr = NULL;
+	const char* key;
+    
 	keyList = FxsDictionaryGetKeys(mat->dict);
 	attrIterator = FxsListIteratorCreate(
 			keyList, 
@@ -325,7 +340,13 @@ void FxsObjMaterialDestroy(FxsObjMaterialPtr mat)
 
 	while (FxsListIteratorHasNext(attrIterator))
 	{
-		FxsObjMaterialAttributeDestroy(FxsListIteratorNext(attrIterator));
+        key = FxsListIteratorNext(attrIterator);
+    
+        if (FxsDictionaryContains(mat->dict, key))
+        {
+            attr = FxsDictionaryFind(mat->dict, key);
+            FxsObjMaterialAttributeDestroy(attr);
+        }
 	}
 
 	FxsListIteratorDestroy(&attrIterator);	
@@ -427,8 +448,6 @@ FxsObjMtlFilePtr FxsObjMtlFileCreateWithFile(
 	FILE* f = NULL;
 	char line[MAX_STR_LEN];
 	char mtlname[MAX_STR_LEN];
-	char* pline = NULL;
-	int numWords = 0;
 	FxsObjMtlFilePtr mtlfile = NULL;
 	FxsObjMaterialPtr currMat = NULL;
 	FxsObjMaterialAttribute* currElem = NULL;
@@ -513,6 +532,8 @@ void FxsObjMtlFileDestroy(FxsObjMtlFilePtr* mtlfile)
 {
 	FxsListPtr keyList = NULL;
 	FxsListIteratorPtr matIterator = NULL;
+    FxsObjMaterialPtr mat = NULL;
+    char* key = NULL;
 
 	if (!mtlfile || !(*mtlfile)) 
 	{
@@ -531,7 +552,13 @@ void FxsObjMtlFileDestroy(FxsObjMtlFilePtr* mtlfile)
 	
 		while (FxsListIteratorHasNext(matIterator))
 		{
-			FxsObjMaterialDestroy(FxsListIteratorNext(matIterator));
+            key = FxsListIteratorNext(matIterator);
+            
+            if (FxsDictionaryContains((*mtlfile)->dict, key))
+            {
+                mat = FxsDictionaryFind((*mtlfile)->dict, key);
+                FxsObjMaterialDestroy(mat);
+            }
 		}
 
 		FxsListIteratorDestroy(&matIterator);

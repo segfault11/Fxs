@@ -13,7 +13,7 @@
 **  Line processing utils
 ******************************************************************************/
 
-int IsEndOfLine(char c)
+static int IsEndOfLine(char c)
 {
 	if (c == '\r' || c == '\n' || c == EOF || c == '\0') 
 	{
@@ -31,7 +31,7 @@ int IsEndOfLine(char c)
 ** since they should be allowed to be not only one string). The line should 
 ** be trimmed before calling this function.
 */ 
-void GetRestOfLine(char* dst, const char* src)
+static void GetRestOfLine(char* dst, const char* src)
 {
 	int i = 0;
 	int j = 0;
@@ -62,7 +62,7 @@ void GetRestOfLine(char* dst, const char* src)
 /*
 ** Trims the line from both ends.
 */ 
-void Trim(char* line)
+static void Trim(char* line)
 {
 	char tmp[MAX_STR_LEN];
 	int i = 0, j = 0, k = 0;
@@ -96,7 +96,7 @@ void Trim(char* line)
 ** replaces each white space char with the ' ' char. does not allow sequences
 ** two or more white spaces.
 */           
-void ProcessWhiteSpace(char* line)
+static void ProcessWhiteSpace(char* line)
 {
 	char tmp[MAX_STR_LEN];
 	int i = 0, j = 0;
@@ -139,7 +139,7 @@ void ProcessWhiteSpace(char* line)
 	strcpy(line, tmp);
 }
 
-void PreProcessLine(char* line)
+static void PreProcessLine(char* line)
 {
 	Trim(line);
 	ProcessWhiteSpace(line);
