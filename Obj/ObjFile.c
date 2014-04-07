@@ -1137,5 +1137,20 @@ unsigned int FxsObjFileGetNumNormals(FxsObjFilePtr file)
 
 FxsListPtr FxsObjFileGetObjects(FxsObjFilePtr file)
 {
+    if (!file)
+    {
+        return 0;
+    }
+
 	return file->objects;
+}
+
+unsigned int FxsObjFileGetNumMaterials(FxsObjFilePtr file)
+{
+    if (!file)
+    {
+        return 0;
+    }
+
+    return file->numMaterials;
 }

@@ -57,6 +57,16 @@ void FxsMatrix4MakeZero(FxsMatrix4* m)
 	memset(m, 0, sizeof(FxsMatrix4));
 }
 
+void FxsMatrix4MakeIdentity(FxsMatrix4* m)
+{
+	memset(m, 0, sizeof(FxsMatrix4));
+
+	m->m11 = 1.0;
+	m->m22 = 1.0;
+	m->m33 = 1.0;
+	m->m44 = 1.0;
+}
+
 void FxsMatrix4MakeTranslation(FxsMatrix4* m, float x, float y, float z)
 {
 	FxsMatrix4MakeZero(m);

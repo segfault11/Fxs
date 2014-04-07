@@ -153,6 +153,11 @@ const char* FxsObjFileGetMaterialName(FxsObjFilePtr file, unsigned int id);
 const char* FxsObjFileGetMtlName(FxsObjFilePtr file);
 
 /*
+** Gets the number of materials for the .obj file.
+*/
+unsigned int FxsObjFileGetNumMaterials(FxsObjFilePtr file);
+
+/*
 ** Gets the number of positions contained in the file
 */ 
 unsigned int FxsObjFileGetNumPositions(FxsObjFilePtr file);

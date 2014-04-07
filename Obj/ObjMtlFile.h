@@ -27,6 +27,15 @@ typedef struct FxsObjMtlFile_* FxsObjMtlFilePtr;
 typedef struct FxsObjMaterial_* FxsObjMaterialPtr;
 
 /*
+** Checks if the material has a certain attributes
+**
+** @param material Material we want to check.
+** @param name Name of the attribute.
+** @retutn 1 if the material contains an attribute with the name, otherwise 0.
+*/
+int FxsObjMaterialHasAttribute(FxsObjMaterialPtr material, const char* name);
+
+/*
 ** Gets an element of the material attribute array. The material attribute
 ** is identified by its name the element is identified by its index. E.g.
 ** if the material attribute was defined by the following line in the mtl file

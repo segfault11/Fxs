@@ -432,6 +432,11 @@ float FxsObjMaterialGetAttributeElementAsFloat(
 	return atof(attr->elements[idx]);
 }
 
+int FxsObjMaterialHasAttribute(FxsObjMaterialPtr material, const char* name)
+{
+    return FxsDictionaryContains(material->dict, name);
+}
+
 /*******************************************************************************
 ** FxsObjMtlFile stuff
 *******************************************************************************/

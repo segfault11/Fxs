@@ -36,6 +36,11 @@ void FxsMatrix4Make(
 void FxsMatrix4MakeZero(FxsMatrix4* m);
 
 /*
+** Initializes the matrix to an identity matrix.
+*/ 
+void FxsMatrix4MakeIdentity(FxsMatrix4* m);
+
+/*
 ** Initializes the matrix as a translation matrix.
 */ 
 void FxsMatrix4MakeTranslation(FxsMatrix4* m, float x, float y, float z);
