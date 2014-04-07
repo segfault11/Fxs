@@ -234,7 +234,7 @@ int FxsListIteratorHasNext(FxsListIteratorPtr li)
 	else
 	{
 		if (li->currentNode->prev != li->list->start 
-		&& li->currentNode->prev  != li->list->start)
+		&& li->currentNode  != li->list->start)
 		{
 			return 1;
 		}
