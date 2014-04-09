@@ -11,16 +11,16 @@ static void Matrix4MakePerspective(
 {
 	memset(m, 0, sizeof(FxsMatrix4)); 
 
-	m->m11 = 2.0*n/(r-l);
+	m->m11 = 2.0f*n/(r-l);
 	m->m13 = (r + l)/(r - l);
 
-	m->m22 = 2.0*n/(t - b);
+	m->m22 = 2.0f*n/(t - b);
 	m->m23 = (t + b)/(t - b);
 	
 	m->m33 = -(f + n)/(f - n);
-	m->m34 = -2.0*f*n/(f - n);
+	m->m34 = -2.0f*f*n/(f - n);
 
-	m->m43 = -1.0;
+	m->m43 = -1.0f;
 }
 
 void FxsMatrix4Make(
@@ -99,7 +99,7 @@ void FxsMatrix4MakePerspective(
 	float far
 )
 {
-    float t = tanf(fovy/2.0);
+    float t = tanf(fovy/2.0f);
     float h = near*t;
     float w = h*aspect;
     
@@ -189,19 +189,19 @@ void FxsMatrix4MakeCameraToWorld(
 void FxsMatrix4MakeRotationWithQuaternion(FxsMatrix4* m, const FxsQuaternion* q)
 {
 	FxsMatrix4MakeZero(m);
-	m->m44 = 1.0;
+	m->m44 = 1.0f;
 	
-	m->m11 = 1.0 - 2.0*q->y*q->y - 2.0*q->z*q->z;
-	m->m12 = 2.0*q->x*q->y - 2.0*q->z*q->w;
-	m->m13 = 2.0*q->x*q->z + 2.0*q->y*q->w;
+	m->m11 = 1.0f - 2.0f*q->y*q->y - 2.0f*q->z*q->z;
+	m->m12 = 2.0f*q->x*q->y - 2.0f*q->z*q->w;
+	m->m13 = 2.0f*q->x*q->z + 2.0f*q->y*q->w;
 
-	m->m21 = 2.0*q->x*q->y + 2.0*q->z*q->w;
-	m->m22 = 1.0 - 2.0*q->x*q->x - 2.0*q->z*q->z;
-	m->m23 = 2.0*q->y*q->z - 2.0*q->x*q->w;
+	m->m21 = 2.0f*q->x*q->y + 2.0f*q->z*q->w;
+	m->m22 = 1.0f - 2.0f*q->x*q->x - 2.0f*q->z*q->z;
+	m->m23 = 2.0f*q->y*q->z - 2.0f*q->x*q->w;
 
-	m->m31 = 2.0*q->x*q->z - 2.0*q->y*q->w;
-	m->m32 = 2.0*q->y*q->z + 2.0*q->x*q->w;
-	m->m33 = 1.0 - 2.0*q->x*q->x - 2.0*q->y*q->y;
+	m->m31 = 2.0f*q->x*q->z - 2.0f*q->y*q->w;
+	m->m32 = 2.0f*q->y*q->z + 2.0f*q->x*q->w;
+	m->m33 = 1.0f - 2.0f*q->x*q->x - 2.0f*q->y*q->y;
 }
 
 
@@ -284,6 +284,7 @@ void FxsMatrix4Invert(FxsMatrix4* data)
 {
     float inv[16], det;
     float* m = (float*)data;
+    int i = 0;
 
     inv[0] = m[5]  * m[10] * m[15] - 
              m[5]  * m[11] * m[14] - 
@@ -400,7 +401,7 @@ void FxsMatrix4Invert(FxsMatrix4* data)
     det = m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] + m[3] * inv[12];
     det = 1.0/det;
 
-    for (int i = 0; i < 16; i++)
+    for (i = 0; i < 16; i++)
     {
         m[i] = inv[i] * det;
     }

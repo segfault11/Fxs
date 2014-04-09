@@ -1,0 +1,31 @@
+﻿Build started 4/9/2014 1:17:57 PM.
+     1>Project "C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\Fxs\Fxs.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Fxs.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\Math\Matrix4.c
+         Matrix4.c
+     1>c:\users\arno\desktop\fxs\math\matrix4.c(402): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\Debug\Fxs.lib" /NOLOGO Debug\Dictionary.obj
+         Debug\List.obj
+         Debug\IntersectionTriBox.obj
+         Debug\Matrix2.obj
+         Debug\Matrix3.obj
+         Debug\Matrix4.obj
+         Debug\Quaternion.obj
+         Debug\Vector2.obj
+         Debug\Vector3.obj
+         Debug\Vector4.obj
+         Debug\Number.obj
+         Debug\ObjFile.obj
+         Debug\ObjMtlFile.obj
+         Fxs.vcxproj -> C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\Debug\Fxs.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\Fxs.unsuccessfulbuild".
+         Touching "Debug\Fxs.lastbuildstate".
+     1>Done Building Project "C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\Fxs\Fxs.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.15
