@@ -1,11 +1,113 @@
-﻿Build started 4/9/2014 1:17:57 PM.
+﻿Build started 4/9/2014 3:25:40 PM.
      1>Project "C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\Fxs\Fxs.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Fxs.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\Math\Matrix4.c
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\Dictionary\Dictionary.c ..\..\..\List\List.c ..\..\..\Math\IntersectionTriBox.c ..\..\..\Math\Matrix2.c ..\..\..\Math\Matrix3.c ..\..\..\Math\Matrix4.c ..\..\..\Math\Quaternion.c ..\..\..\Math\Vector2.c ..\..\..\Math\Vector3.c ..\..\..\Math\Vector4.c ..\..\..\Number\Number.c ..\..\..\Obj\ObjFile.c ..\..\..\Obj\ObjMtlFile.c
+         ObjMtlFile.c
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(94): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(141): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(187): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(189): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(197) : see declaration of 'strtok'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(193): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(197) : see declaration of 'strtok'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(209): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(223): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(197) : see declaration of 'strtok'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(232): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(252): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(197) : see declaration of 'strtok'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(272): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(286): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(432): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(460): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\arno\desktop\fxs\obj\objmtlfile.c(500): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+         ObjFile.c
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(92): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(139): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(205): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(311): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(499): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(540): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(575): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(600): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(624): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(658): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(676): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(694): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(712): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(727): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(746): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(758): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(772): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(810): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(852): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(899): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(924): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\obj\objfile.c(1029): warning C4018: '<' : signed/unsigned mismatch
+         Number.c
+     1>c:\users\arno\desktop\fxs\number\number.c(25): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\arno\desktop\fxs\number\number.c(39): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\arno\desktop\fxs\number\number.c(62): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         Vector4.c
+     1>c:\users\arno\desktop\fxs\math\vector4.c(113): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         Vector3.c
+     1>c:\users\arno\desktop\fxs\math\vector3.c(103): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         Vector2.c
+     1>c:\users\arno\desktop\fxs\math\vector2.c(83): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         Quaternion.c
+     1>c:\users\arno\desktop\fxs\math\quaternion.c(30): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          Matrix4.c
      1>c:\users\arno\desktop\fxs\math\matrix4.c(402): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         Matrix3.c
+         Matrix2.c
+         IntersectionTriBox.c
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(138): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(139): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(140): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(145): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(146): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(147): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(152): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(153): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\arno\desktop\fxs\math\intersectiontribox.c(154): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         List.c
+         Dictionary.c
+     1>c:\users\arno\desktop\fxs\dictionary\dictionary.c(158): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+     1>c:\users\arno\desktop\fxs\dictionary\dictionary.c(326): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\Debug\Fxs.lib" /NOLOGO Debug\Dictionary.obj
          Debug\List.obj
@@ -28,4 +130,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.15
+Time Elapsed 00:00:00.44

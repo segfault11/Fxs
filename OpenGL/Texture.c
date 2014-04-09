@@ -1,4 +1,5 @@
 #include "Texture.h"
+#include <stdlib.h>
 
 /* let's use the mighty stb_image library! */
 extern unsigned char *stbi_load(

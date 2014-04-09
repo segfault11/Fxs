@@ -1,24 +1,11 @@
-﻿Build started 4/9/2014 1:12:19 PM.
-     1>Project "C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\FxsOpenGL\FxsOpenGL.vcxproj" on node 3 (build target(s)).
+﻿Build started 4/9/2014 3:27:27 PM.
+     1>Project "C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\FxsOpenGL\FxsOpenGL.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\FxsOpenGL.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\FxsOpenGL.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\OpenGL\Program.c ..\..\..\OpenGL\stb_image.c ..\..\..\OpenGL\Texture.c
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D FXS_USE_GLEW_HEADER /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\OpenGL\Texture.c
          Texture.c
-     1>c:\users\arno\desktop\fxs\opengl\texture.c(65): warning C4013: 'stb_image_free' undefined; assuming extern returning int
-         stb_image.c
-     1>c:\users\arno\desktop\fxs\opengl\stb_image.c(559): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-     1>c:\users\arno\desktop\fxs\opengl\stb_image.c(621): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-     1>c:\users\arno\desktop\fxs\opengl\stb_image.c(659): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-     1>c:\users\arno\desktop\fxs\opengl\stb_image.c(4552): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-         Program.c
-     1>c:\users\arno\desktop\fxs\opengl\program.c(20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-         Generating Code...
+     1>c:\users\arno\desktop\fxs\opengl\texture.c(66): warning C4013: 'stb_image_free' undefined; assuming extern returning int
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Arno\Desktop\Fxs\VisualStudio\Fxs\Debug\FxsOpenGL.lib" /NOLOGO Debug\Program.obj
          Debug\stb_image.obj
@@ -31,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:00.16
