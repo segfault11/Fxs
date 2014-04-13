@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fxs", "Fxs\Fxs.vcxproj", "{C8192AB4-1E64-4640-9EFA-BD913AFD90DB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FxsOpenGL", "FxsOpenGL\FxsOpenGL.vcxproj", "{2DD867C0-3453-4D43-B6E6-827E90DFEC45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8192AB4-1E64-4640-9EFA-BD913AFD90DB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C8192AB4-1E64-4640-9EFA-BD913AFD90DB}.Debug|Win32.Build.0 = Debug|Win32
+		{C8192AB4-1E64-4640-9EFA-BD913AFD90DB}.Release|Win32.ActiveCfg = Release|Win32
+		{C8192AB4-1E64-4640-9EFA-BD913AFD90DB}.Release|Win32.Build.0 = Release|Win32
+		{2DD867C0-3453-4D43-B6E6-827E90DFEC45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2DD867C0-3453-4D43-B6E6-827E90DFEC45}.Debug|Win32.Build.0 = Debug|Win32
+		{2DD867C0-3453-4D43-B6E6-827E90DFEC45}.Release|Win32.ActiveCfg = Release|Win32
+		{2DD867C0-3453-4D43-B6E6-827E90DFEC45}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

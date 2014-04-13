@@ -24,9 +24,12 @@ extern "C"
 {
 #endif
 
-
-#define GL_GLEXT_PROTOTYPES 1
-#include "glcorearb.h"
+#ifdef FXS_USE_GLEW_HEADER
+    #include <GL/glew.h>
+#else
+    #define GL_GLEXT_PROTOTYPES 1
+    #include "glcorearb.h"
+#endif
 
 /*
 ** Loads a image and creates a 2d texture from it.
