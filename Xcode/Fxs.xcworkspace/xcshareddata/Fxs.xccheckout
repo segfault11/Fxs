@@ -10,6 +10,8 @@
 	<string>Fxs</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>6F1CEDFB-8463-482E-9A68-E37270973557</key>
+		<string>https://github.com/irscttrbrn/FF</string>
 		<key>A3C3E79C-A1CA-468A-9540-F935417E9C83</key>
 		<string>https://github.com/irscttrbrn/Fxs</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Xcode/Fxs.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>6F1CEDFB-8463-482E-9A68-E37270973557</key>
+		<string>../../../FF</string>
 		<key>A3C3E79C-A1CA-468A-9540-F935417E9C83</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>A3C3E79C-A1CA-468A-9540-F935417E9C83</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6F1CEDFB-8463-482E-9A68-E37270973557</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FF</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

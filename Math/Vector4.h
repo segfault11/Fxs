@@ -91,7 +91,7 @@ void FxsVector4SubstractScalar(
 /*
 ** Computes the length of vector a and stores the result in length
 */ 
-void FxsVector4Length(float* length, const FxsVector4* a);
+void FxsVector4Length(const FxsVector4* a, float* length);
 
 /*
 ** Normalizes the vector v. Returns 0 if the vector cannot be normalized, i.e.

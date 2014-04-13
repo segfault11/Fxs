@@ -78,7 +78,7 @@ void FxsVector2Copy(FxsVector2* dst, const FxsVector2* src)
 	memcpy(dst, src, sizeof(FxsVector2));
 } 
 
-void FxsVector2Length(float* length, const FxsVector2* a)
+void FxsVector2Length(const FxsVector2* a, float* length)
 {
 	*length = sqrt(a->x*a->x + a->y*a->y);
 }
@@ -86,7 +86,7 @@ void FxsVector2Length(float* length, const FxsVector2* a)
 int FxsVector2Normalize(FxsVector2* a)
 {
 	float l;
-	FxsVector2Length(&l, a);
+	FxsVector2Length(a, &l);
 
 	if (l == 0.0f) 
 	{

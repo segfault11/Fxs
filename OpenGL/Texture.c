@@ -62,7 +62,7 @@ GLuint FxsOpenGLTexture2DCreate(const char* filename)
 	   	goto error; 
 	}
 
-	stb_image_free(data);
+	stbi_image_free(data);
 	return tex;
 
 error:
@@ -74,7 +74,7 @@ error:
 
 	if (data) 
 	{
-	    stb_image_free(data);
+	    stbi_image_free(data);
 	}
 	
 	return 0;

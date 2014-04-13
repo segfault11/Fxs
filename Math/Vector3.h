@@ -91,7 +91,7 @@ void FxsVector3SubstractScalar(
 /*
 ** Computes the length of vector a and stores the result in length
 */ 
-void FxsVector3Length(float* length, const FxsVector3* a);
+void FxsVector3Length(const FxsVector3* a, float* length);
 
 /*
 ** Normalizes the vector v. Returns 0 if the vector cannot be normalized, i.e.

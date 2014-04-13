@@ -95,7 +95,7 @@ void FxsVector2Copy(FxsVector2* dst, const FxsVector2* src);
 /*
 ** Computes the length of vector a and stores the result in length
 */ 
-void FxsVector2Length(float* length, const FxsVector2* a);
+void FxsVector2Length(const FxsVector2* a, float* length);
 
 /*
 ** Normalizes the vector v. Returns 0 if the vector cannot be normalized, i.e.

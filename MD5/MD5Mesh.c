@@ -737,7 +737,7 @@ int FxsMD5MeshUpdatePoseWithAnimationFrame(
 		mesh->currentPose.joints[i].parent = animJoint->parent;
 		mesh->currentPose.joints[i].position = position;
 
-        FxsVector3Length(&orientationAxisMagnitude, &orientationAxis);
+        FxsVector3Length(&orientationAxis, &orientationAxisMagnitude);
 
         //
         // TODO is the following correct??

@@ -98,7 +98,7 @@ void FxsVector3SubstractScalar(
 	res->z = a->z - s;
 }
 
-void FxsVector3Length(float* length, const FxsVector3* a)
+void FxsVector3Length(const FxsVector3* a, float* length)
 {
 	*length = sqrt(a->x*a->x + a->y*a->y + a->z*a->z);
 }
@@ -106,7 +106,7 @@ void FxsVector3Length(float* length, const FxsVector3* a)
 int FxsVector3Normalize(FxsVector3* a)
 {
 	float l;
-	FxsVector3Length(&l, a);
+	FxsVector3Length(a, &l);
 
 	if (l == 0.0f) 
 	{

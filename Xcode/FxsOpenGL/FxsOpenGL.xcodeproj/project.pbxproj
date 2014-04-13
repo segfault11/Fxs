@@ -10,6 +10,9 @@
 		A80A49BF18EE922000F2F9B2 /* glcorearb.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A49BC18EE922000F2F9B2 /* glcorearb.h */; };
 		A80A49C018EE922000F2F9B2 /* Program.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A49BD18EE922000F2F9B2 /* Program.c */; };
 		A80A49C118EE922000F2F9B2 /* Program.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A49BE18EE922000F2F9B2 /* Program.h */; };
+		A8BACF2118F3D86200B2B0FC /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = A8BACF1E18F3D86200B2B0FC /* stb_image.c */; };
+		A8BACF2218F3D86200B2B0FC /* Texture.c in Sources */ = {isa = PBXBuildFile; fileRef = A8BACF1F18F3D86200B2B0FC /* Texture.c */; };
+		A8BACF2318F3D86200B2B0FC /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BACF2018F3D86200B2B0FC /* Texture.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +20,9 @@
 		A80A49BC18EE922000F2F9B2 /* glcorearb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glcorearb.h; path = ../../OpenGL/glcorearb.h; sourceTree = "<group>"; };
 		A80A49BD18EE922000F2F9B2 /* Program.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Program.c; path = ../../OpenGL/Program.c; sourceTree = "<group>"; };
 		A80A49BE18EE922000F2F9B2 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = ../../OpenGL/Program.h; sourceTree = "<group>"; };
+		A8BACF1E18F3D86200B2B0FC /* stb_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stb_image.c; path = ../../OpenGL/stb_image.c; sourceTree = "<group>"; };
+		A8BACF1F18F3D86200B2B0FC /* Texture.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Texture.c; path = ../../OpenGL/Texture.c; sourceTree = "<group>"; };
+		A8BACF2018F3D86200B2B0FC /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = ../../OpenGL/Texture.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,9 @@
 		A80A49C218EE922800F2F9B2 /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				A8BACF1E18F3D86200B2B0FC /* stb_image.c */,
+				A8BACF1F18F3D86200B2B0FC /* Texture.c */,
+				A8BACF2018F3D86200B2B0FC /* Texture.h */,
 				A80A49BC18EE922000F2F9B2 /* glcorearb.h */,
 				A80A49BD18EE922000F2F9B2 /* Program.c */,
 				A80A49BE18EE922000F2F9B2 /* Program.h */,
@@ -63,6 +72,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BACF2318F3D86200B2B0FC /* Texture.h in Headers */,
 				A80A49BF18EE922000F2F9B2 /* glcorearb.h in Headers */,
 				A80A49C118EE922000F2F9B2 /* Program.h in Headers */,
 			);
@@ -119,7 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BACF2218F3D86200B2B0FC /* Texture.c in Sources */,
 				A80A49C018EE922000F2F9B2 /* Program.c in Sources */,
+				A8BACF2118F3D86200B2B0FC /* stb_image.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +243,7 @@
 				A80A49BB18EE921200F2F9B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

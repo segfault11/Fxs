@@ -108,7 +108,7 @@ void FxsVector4SubstractScalar(
 	res->w = a->w - s;
 }
 
-void FxsVector4Length(float* length, const FxsVector4* a)
+void FxsVector4Length(const FxsVector4* a, float* length)
 {
 	*length = sqrt(a->x*a->x + a->y*a->y + a->z*a->z + a->w*a->w);
 }
@@ -116,7 +116,7 @@ void FxsVector4Length(float* length, const FxsVector4* a)
 int FxsVector4Normalize(FxsVector4* a)
 {
 	float l;
-	FxsVector4Length(&l, a);
+	FxsVector4Length(a, &l);
 
 	if (l == 0.0f) 
 	{
