@@ -2,63 +2,48 @@
 #include <memory.h>
 #include <stdlib.h>
 
-typedef struct FxsListNode_
-{
+typedef struct FxsListNode_ {
 	struct FxsListNode_* prev;
     struct FxsListNode_* next;
 	void* value;
-}
-FxsListNode;
+} FxsListNode;
 
-typedef struct FxsList_
-{
+typedef struct FxsList_ {
 	FxsListNode* start;
 	FxsListNode* end;	
 	size_t size;
-}
-FxsList;
+} FxsList;
 
-typedef struct FxsListIterator_
-{
+typedef struct FxsListIterator_ {
 	int dir; 					/* direction of the iterator */
 	FxsListPtr list;
 	FxsListNode* currentNode;
-}
-FxsListIterator;
+} FxsListIterator;
  
 FxsListPtr FxsListCreate()
 {
 	FxsListPtr lp = (FxsListPtr)malloc(sizeof(FxsList));
 
-	if (lp) 
-	{
+	if (lp) {
 	    memset(lp, 0, sizeof(FxsList));
-	}
-	else
-	{
+	} else {
 		return NULL;
 	}
 
 	lp->start = (FxsListNode*)malloc(sizeof(FxsListNode));
 	
-	if (lp->start) 
-	{
+	if (lp->start) {
 	    memset(lp->start, 0, sizeof(FxsListNode));
-	}
-	else
-	{
+	} else {
 		free(lp);
 		return NULL;
 	}
 
 	lp->end = (FxsListNode*)malloc(sizeof(FxsListNode));
 	
-	if (lp->end) 
-	{
+	if (lp->end) {
 	    memset(lp->end, 0, sizeof(FxsListNode));
-	}
-	else
-	{
+	} else {
 		free(lp->start);
 		free(lp);
 		return NULL;
@@ -72,8 +57,7 @@ FxsListPtr FxsListCreate()
 
 void FxsListDestroy(FxsListPtr* l)
 {
-	if (!l || !*(l))
-	{
+	if (!l || !*(l)) {
 		return;
 	}
 
@@ -85,8 +69,7 @@ int FxsListPushBack(FxsListPtr l, void* val)
 {
 	FxsListNode* ln = (FxsListNode*)malloc(sizeof(FxsListNode));
 
-	if (!ln)
-	{
+	if (!ln) {
 	    return 0;
 	}
 
@@ -105,8 +88,7 @@ int FxsListPushFront(FxsListPtr l, void* val)
 	
 	FxsListNode* ln = (FxsListNode*)malloc(sizeof(FxsListNode));
 
-	if (!ln)
-	{
+	if (!ln) {
 	    return 0;
 	}
 
@@ -138,8 +120,7 @@ size_t FxsListGetSize(FxsListPtr l)
 
 void FxsListPopFront(FxsListPtr l)
 {
-	if (!l->size)
-	{
+	if (!l->size) {
 		return;
 	}
 
@@ -152,8 +133,7 @@ void FxsListPopFront(FxsListPtr l)
 
 void FxsListPopBack(FxsListPtr l)
 {
-	if (!l->size)
-	{
+	if (!l->size) {
 		return;
 	}
 
@@ -168,31 +148,27 @@ FxsListIteratorPtr FxsListIteratorCreate(FxsListPtr l, int pos, int dir)
 {
 	FxsListIteratorPtr li = NULL; 
 	
-	if (!l) 
-	{
+	if (!l) {
 	    return NULL;
 	}
 
-	if (!l->size) 
-	{
+	/* TODO: delete me */
+	if (!l->size) {
 	    return NULL;
 	}
 
 	li = (FxsListIteratorPtr)malloc(sizeof(FxsListIterator));
 
-	if (!li) 
-	{
+	if (!li) {
 	    return NULL;
 	}
 
 	li->list = l;
 	
-	if (pos == FXS_LIST_FRONT) 
-	{
+	if (pos == FXS_LIST_FRONT) {
 		li->currentNode = l->start;
 	}
-	else
-	{
+	else {
 		li->currentNode = l->end;
 	}
 
@@ -203,8 +179,7 @@ FxsListIteratorPtr FxsListIteratorCreate(FxsListPtr l, int pos, int dir)
 
 void FxsListIteratorDestroy(FxsListIteratorPtr* li)
 {
-	if (!li || !(*li))
-	{
+	if (!li || !(*li)) {
 		return;
 	}
 
@@ -214,32 +189,23 @@ void FxsListIteratorDestroy(FxsListIteratorPtr* li)
 
 int FxsListIteratorHasNext(FxsListIteratorPtr li)
 {
-	if (!li) 
-	{
+	if (!li) {
 	    return 0;
 	}
 
-	if (li->dir == FXS_LIST_FRONT_TO_BACK) 
-	{
+	if (li->dir == FXS_LIST_FRONT_TO_BACK) {
 		if (li->currentNode->next != li->list->end 
-		&& li->currentNode != li->list->end)
-		{
+ 			&& li->currentNode != li->list->end) {
 			return 1;
-		}
-		else
-		{
+		} else {
 			return 0;
 		}
 	}
-	else
-	{
+	else {
 		if (li->currentNode->prev != li->list->start 
-		&& li->currentNode  != li->list->start)
-		{
+			&& li->currentNode  != li->list->start) {
 			return 1;
-		}
-		else
-		{
+		} else {
 			return 0;
 		}
 	}
@@ -247,26 +213,19 @@ int FxsListIteratorHasNext(FxsListIteratorPtr li)
 
 void* FxsListIteratorNext(FxsListIteratorPtr li)
 {
-	if (!li) 
-	{
+	if (!li) {
 	    return 0;
 	}
 
-	if (FxsListIteratorHasNext(li)) 
-	{
-		if (li->dir == FXS_LIST_FRONT_TO_BACK) 
-		{
+	if (FxsListIteratorHasNext(li)) {
+		if (li->dir == FXS_LIST_FRONT_TO_BACK) {
 			li->currentNode = li->currentNode->next;
-		}
-		else
-		{
+		} else {
 			li->currentNode = li->currentNode->prev;
 		}
 	 	
 		return li->currentNode->value;
-	}
-	else
-	{
+	} else {
 		return NULL;
 	}
 }
@@ -275,25 +234,20 @@ void FxsListIteratorRemove(FxsListIteratorPtr li)
 {
 	FxsListNode* ln = NULL;
 
-	if (!li) 
-	{
+	if (!li) {
 	  	return; 
 	}
 	
-	if (li->currentNode == li->list->start || li->currentNode == li->list->end) 
-	{
+	if (li->currentNode == li->list->start || li->currentNode == li->list->end) {
 		return; 
 	}
 
 	li->currentNode->prev->next = li->currentNode->next;
 	li->currentNode->next->prev = li->currentNode->prev;
 	
-	if (li->dir == FXS_LIST_FRONT_TO_BACK)
-	{
+	if (li->dir == FXS_LIST_FRONT_TO_BACK) {
 		ln = li->currentNode->prev;
-	}
-	else
-	{
+	} else {
 		ln = li->currentNode->next;
 	}
 	
@@ -305,18 +259,15 @@ void FxsListIteratorRemove(FxsListIteratorPtr li)
 
 int FxsListIteratorSetPosition(FxsListIteratorPtr li, int pos)
 {
-    if (!li || !li->list->size)
-    {
+    if (!li || !li->list->size) {
         return 0;
     }
     
-    if (pos == FXS_LIST_FRONT)
-    {
+    if (pos == FXS_LIST_FRONT) {
         li->currentNode = li->list->start;
     }
     
-    if (pos == FXS_LIST_BACK)
-    {
+    if (pos == FXS_LIST_BACK) {
         li->currentNode = li->list->end;
     }
     
@@ -325,8 +276,7 @@ int FxsListIteratorSetPosition(FxsListIteratorPtr li, int pos)
 
 int FxsListIteratorSetDirection(FxsListIteratorPtr li, int dir)
 {
-	if (!li) 
-	{
+	if (!li) {
 		return 0;
 	}
 

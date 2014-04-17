@@ -23,7 +23,6 @@
 		A83ABF8818ED18AD00D5A7B9 /* MD5Mesh.c in Sources */ = {isa = PBXBuildFile; fileRef = A83ABF6F18ED18AD00D5A7B9 /* MD5Mesh.c */; };
 		A83ABF8918ED18AD00D5A7B9 /* Number.c in Sources */ = {isa = PBXBuildFile; fileRef = A83ABF7218ED18AD00D5A7B9 /* Number.c */; };
 		A83ABF8A18ED18AD00D5A7B9 /* ObjFile.c in Sources */ = {isa = PBXBuildFile; fileRef = A83ABF7518ED18AD00D5A7B9 /* ObjFile.c */; };
-		A83ABF8C18ED18AD00D5A7B9 /* ObjMesh.c in Sources */ = {isa = PBXBuildFile; fileRef = A83ABF7818ED18AD00D5A7B9 /* ObjMesh.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,8 +70,6 @@
 		A83ABF7318ED18AD00D5A7B9 /* Number.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Number.h; sourceTree = "<group>"; };
 		A83ABF7518ED18AD00D5A7B9 /* ObjFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ObjFile.c; sourceTree = "<group>"; };
 		A83ABF7618ED18AD00D5A7B9 /* ObjFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjFile.h; sourceTree = "<group>"; };
-		A83ABF7818ED18AD00D5A7B9 /* ObjMesh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ObjMesh.c; sourceTree = "<group>"; };
-		A83ABF7918ED18AD00D5A7B9 /* ObjMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjMesh.h; sourceTree = "<group>"; };
 		A83ABF8E18ED1A3B00D5A7B9 /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = "<group>"; };
 		A83ABF8F18ED73B100D5A7B9 /* castle scene.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "castle scene.obj"; sourceTree = "<group>"; };
 		A83ABF9018ED73B100D5A7B9 /* Cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cube.obj; sourceTree = "<group>"; };
@@ -198,8 +195,6 @@
 			children = (
 				A83ABF7518ED18AD00D5A7B9 /* ObjFile.c */,
 				A83ABF7618ED18AD00D5A7B9 /* ObjFile.h */,
-				A83ABF7818ED18AD00D5A7B9 /* ObjMesh.c */,
-				A83ABF7918ED18AD00D5A7B9 /* ObjMesh.h */,
 			);
 			name = Obj;
 			path = ../../Obj;
@@ -258,7 +253,6 @@
 			files = (
 				A83ABF7F18ED18AD00D5A7B9 /* IntersectionTriBox.c in Sources */,
 				A83ABF8818ED18AD00D5A7B9 /* MD5Mesh.c in Sources */,
-				A83ABF8C18ED18AD00D5A7B9 /* ObjMesh.c in Sources */,
 				A83ABF4C18ED185100D5A7B9 /* main.c in Sources */,
 				A83ABF8418ED18AD00D5A7B9 /* Vector2.c in Sources */,
 				A83ABF8018ED18AD00D5A7B9 /* Matrix2.c in Sources */,
@@ -385,6 +379,7 @@
 				A83ABF5318ED185100D5A7B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

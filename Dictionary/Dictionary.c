@@ -4,8 +4,7 @@
 
 struct FxsDictionaryBucket_;
 
-typedef struct FxsDictionaryBucket_
-{
+typedef struct FxsDictionaryBucket_ {
 	FxsListIteratorPtr it;             /* stores the position of the key for 
 									   ** this bucket element in the keys list, 
 									   ** so we can remove the key from the 
@@ -14,23 +13,20 @@ typedef struct FxsDictionaryBucket_
 	struct FxsDictionaryBucket_* next;
 	char* key;
 	void* value;
-}
-FxsDictionaryBucket;
+} FxsDictionaryBucket; 
 
-typedef struct FxsDictionary_
-{
+typedef struct FxsDictionary_ {
 	size_t tableSize;
 	size_t size; 		/* # of entries in the dictionary */
 	FxsDictionaryBucket** buckets;
 	FxsListPtr keys;
-}
-FxsDictionary;
+} FxsDictionary;
 
 /*
 ** Computes the hash for a string according to the djb2 algorithm. (see:
 ** http://www.cse.yorku.ca/~oz/hash.html)
 */ 
-size_t ComputeHash(const char *str)
+size_t ComputeHash(const char *str) 
 {
     unsigned long hash = 5381;
     char c;

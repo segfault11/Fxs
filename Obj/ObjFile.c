@@ -1080,7 +1080,7 @@ int FxsObjFileGetNormal(FxsObjFilePtr file, FxsVector3* normal, unsigned int id)
 
 int FxsObjFileGetTexCoord(FxsObjFilePtr file, FxsVector2* tc, unsigned int id)
 {
-	if (!file || file->numTexCoords) 
+	if (!file || file->numTexCoords <= id) 
 	{
 	   	return 0; 
 	}

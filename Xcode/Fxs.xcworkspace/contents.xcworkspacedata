@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Image/Image.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ObjBoundingBox/ObjBoundingBox.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:TextureLoadTest/TextureLoadTest.xcodeproj">
    </FileRef>
    <FileRef
