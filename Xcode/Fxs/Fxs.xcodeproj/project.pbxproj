@@ -37,6 +37,12 @@
 		A80A49A418EE902300F2F9B2 /* ObjMtlFile.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A497C18EE902300F2F9B2 /* ObjMtlFile.h */; };
 		A80A49AA18EE90BD00F2F9B2 /* ObjFile.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A49A818EE90BD00F2F9B2 /* ObjFile.c */; };
 		A80A49AB18EE90BD00F2F9B2 /* ObjFile.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A49A918EE90BD00F2F9B2 /* ObjFile.h */; };
+		A88B8D661914B98B00400958 /* Image.c in Sources */ = {isa = PBXBuildFile; fileRef = A88B8D601914B98B00400958 /* Image.c */; };
+		A88B8D671914B98B00400958 /* Image.h in Headers */ = {isa = PBXBuildFile; fileRef = A88B8D611914B98B00400958 /* Image.h */; };
+		A88B8D681914B98B00400958 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = A88B8D621914B98B00400958 /* stb_image.c */; };
+		A88B8D691914B98B00400958 /* stb_image.h in Headers */ = {isa = PBXBuildFile; fileRef = A88B8D631914B98B00400958 /* stb_image.h */; };
+		A88B8D6A1914B98B00400958 /* stb_image_write.c in Sources */ = {isa = PBXBuildFile; fileRef = A88B8D641914B98B00400958 /* stb_image_write.c */; };
+		A88B8D6B1914B98B00400958 /* stb_image_write.h in Headers */ = {isa = PBXBuildFile; fileRef = A88B8D651914B98B00400958 /* stb_image_write.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +77,12 @@
 		A80A497C18EE902300F2F9B2 /* ObjMtlFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjMtlFile.h; sourceTree = "<group>"; };
 		A80A49A818EE90BD00F2F9B2 /* ObjFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ObjFile.c; sourceTree = "<group>"; };
 		A80A49A918EE90BD00F2F9B2 /* ObjFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjFile.h; sourceTree = "<group>"; };
+		A88B8D601914B98B00400958 /* Image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Image.c; sourceTree = "<group>"; };
+		A88B8D611914B98B00400958 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		A88B8D621914B98B00400958 /* stb_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stb_image.c; sourceTree = "<group>"; };
+		A88B8D631914B98B00400958 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		A88B8D641914B98B00400958 /* stb_image_write.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stb_image_write.c; sourceTree = "<group>"; };
+		A88B8D651914B98B00400958 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
 		A8F3AF1918F2F9F1006F440E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		A8F3AF1B18F2FA0C006F440E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +101,7 @@
 		A80A494118EE8FFD00F2F9B2 = {
 			isa = PBXGroup;
 			children = (
+				A88B8D5F1914B98B00400958 /* Image */,
 				A8F3AF1B18F2FA0C006F440E /* SDL2.framework */,
 				A8F3AF1918F2F9F1006F440E /* OpenGL.framework */,
 				A80A495118EE902300F2F9B2 /* Dictionary */,
@@ -187,6 +200,20 @@
 			path = ../../Obj;
 			sourceTree = "<group>";
 		};
+		A88B8D5F1914B98B00400958 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A88B8D601914B98B00400958 /* Image.c */,
+				A88B8D611914B98B00400958 /* Image.h */,
+				A88B8D621914B98B00400958 /* stb_image.c */,
+				A88B8D631914B98B00400958 /* stb_image.h */,
+				A88B8D641914B98B00400958 /* stb_image_write.c */,
+				A88B8D651914B98B00400958 /* stb_image_write.h */,
+			);
+			name = Image;
+			path = ../../Image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -194,9 +221,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88B8D671914B98B00400958 /* Image.h in Headers */,
 				A80A499C18EE902300F2F9B2 /* MD5Mesh.h in Headers */,
 				A80A499018EE902300F2F9B2 /* Matrix4.h in Headers */,
 				A80A498818EE902300F2F9B2 /* List.h in Headers */,
+				A88B8D6B1914B98B00400958 /* stb_image_write.h in Headers */,
 				A80A499818EE902300F2F9B2 /* Vector4.h in Headers */,
 				A80A499418EE902300F2F9B2 /* Vector2.h in Headers */,
 				A80A499218EE902300F2F9B2 /* Quaternion.h in Headers */,
@@ -206,6 +235,7 @@
 				A80A499E18EE902300F2F9B2 /* Number.h in Headers */,
 				A80A49A418EE902300F2F9B2 /* ObjMtlFile.h in Headers */,
 				A80A498C18EE902300F2F9B2 /* Matrix2.h in Headers */,
+				A88B8D691914B98B00400958 /* stb_image.h in Headers */,
 				A80A499618EE902300F2F9B2 /* Vector3.h in Headers */,
 				A80A498E18EE902300F2F9B2 /* Matrix3.h in Headers */,
 				A80A49AB18EE90BD00F2F9B2 /* ObjFile.h in Headers */,
@@ -264,7 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A80A499118EE902300F2F9B2 /* Quaternion.c in Sources */,
+				A88B8D6A1914B98B00400958 /* stb_image_write.c in Sources */,
 				A80A498B18EE902300F2F9B2 /* Matrix2.c in Sources */,
+				A88B8D681914B98B00400958 /* stb_image.c in Sources */,
 				A80A498918EE902300F2F9B2 /* IntersectionTriBox.c in Sources */,
 				A80A498F18EE902300F2F9B2 /* Matrix4.c in Sources */,
 				A80A499718EE902300F2F9B2 /* Vector4.c in Sources */,
@@ -274,6 +306,7 @@
 				A80A499518EE902300F2F9B2 /* Vector3.c in Sources */,
 				A80A499318EE902300F2F9B2 /* Vector2.c in Sources */,
 				A80A499B18EE902300F2F9B2 /* MD5Mesh.c in Sources */,
+				A88B8D661914B98B00400958 /* Image.c in Sources */,
 				A80A498118EE902300F2F9B2 /* Dictionary.c in Sources */,
 				A80A498718EE902300F2F9B2 /* List.c in Sources */,
 				A80A499D18EE902300F2F9B2 /* Number.c in Sources */,

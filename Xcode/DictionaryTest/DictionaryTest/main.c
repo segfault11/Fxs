@@ -38,9 +38,26 @@ void Test01()
     FxsDictionaryDestroy(&d);
 }
 
+void Test02()
+{
+    char* test = "test";
+    FxsDictionaryPtr d = FxsDictionaryCreateWithTableSize(1);
+
+    FxsDictionaryInsert(d, "1", test);
+    
+    printf("size %zu\n", FxsDictionaryGetSize(d));
+    
+    
+    FxsDictionaryRemove(d, "bla");
+
+    printf("size %zu\n", FxsDictionaryGetSize(d));
+
+    FxsDictionaryDestroy(&d);
+}
+
 int main(int argc, const char * argv[])
 {
-    Test01();
+    Test02();
 
     return 0;
 }

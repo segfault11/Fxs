@@ -5,6 +5,29 @@
 #include "stb_image.h"
 #include "stb_image_write.h"
 
+
+
+FxsImagePtr FxsImageCreate(int width, int height, int numChannels)
+{
+	FxsImagePtr img = malloc(sizeof(FxsImage));
+
+	if (!img) {
+	    return NULL;
+	}
+
+	img->width = width;
+	img->height = height;
+	img->numChannels = numChannels;
+	img->data = malloc(sizeof(unsigned char) * width * height * numChannels);
+
+	if (!img->data) {
+	    free(img);
+		return NULL;
+	}
+
+	return img;
+}
+
 FxsImagePtr FxsImageCreateWithFilename(const char* filename)
 {
 	FxsImagePtr img = malloc(sizeof(FxsImage));

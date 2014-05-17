@@ -156,7 +156,7 @@ typedef struct FxsObjGroup_
 }
 FxsObjGroup;
 
-const char* FxSObjGroupGetName(FxsObjGroupPtr group)
+const char* FxsObjGroupGetName(FxsObjGroupPtr group)
 {
 	if (!group) 
 	{

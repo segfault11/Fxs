@@ -35,6 +35,8 @@ FxsImage;
 
 typedef FxsImage* FxsImagePtr;
 
+FxsImagePtr FxsImageCreate(int width, int height, int numChannels);
+
 /*
 ** Loads the the image from a file. Returns NULL if the method fails.
 */ 

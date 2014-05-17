@@ -133,7 +133,7 @@ int FxsDictionaryInsert(FxsDictionaryPtr dict, const char* key, void* value)
 		return 0;
 	}
 
-	strl = strlen(key + 1);
+	strl = strlen(key) + 1;
 	bucket->key = (char*)malloc(strl);
 
 	if (!bucket->key) 
@@ -237,8 +237,6 @@ int FxsDictionaryRemove(FxsDictionaryPtr dict, const char* key)
 		prevBucket = bucket;
 		bucket = bucket->next;
 	}
-    
-	dict->size--;
 	
 	return 0;	
 }
@@ -306,6 +304,7 @@ static void DeleteBucket(FxsDictionaryBucket* bucket)
 	    DeleteBucket(bucket->next);
 	}
 
+    FxsListIteratorDestroy(&bucket->it);
 	free(bucket->key);
 	free(bucket);
 }
