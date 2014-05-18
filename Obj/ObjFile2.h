@@ -1,6 +1,6 @@
 /*
  * A more simple and easier to definition of an .obj file 
- * (comparted to ObjFile.h)
+ * (compared to ObjFile.h)
  * Copyright (C) 2014 Arno in Wolde Luebke 
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,30 +19,28 @@
 #ifndef OBJFILE2_H
 #define OBJFILE2_H
 
+#include "../Math/Vector2.h"
 #include "../Math/Vector3.h"
 
 #define FXS_OBJ_FILE2_MAX_STRLEN 16
 
-enum {
-	FXS_OBJ_FILE2_NORMALS = 1,
-	FXS_OBJ_FILE2_TEXCOORDS = 2,
-	FXS_OBJ_FILE2_MATERIALS = 4
-};
-
+/*
+** Representation of a face. Holds indices to position, normal and texture
+** coordinates in the "FxsObjFile2" structure.
+*/ 
 typedef struct {
-	int type; 			/* stores whether the face contains normals, 
-						   texcoords or a material */
 	int p0, p1, p2;
 	int n0, n1, n2;
 	int tc0, tc1, tc2;
-	char name[FXS_OBJ_FILE2_MAX_STRLEN];
 } FxsObjFile2Face;
 
 typedef struct {
+	char name[FXS_OBJ_FILE2_MAX_STRLEN];
+	char materialName[FXS_OBJ_FILE2_MAX_STRLEN];
 	int childId;
-	int numChilds;
+	unsigned int numChilds;
 	int faceId;
-	int numFaces;
+	unsigned int numFaces;
 } FxsObjFile2Node;
 
 typedef struct  {

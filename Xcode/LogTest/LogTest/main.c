@@ -15,9 +15,11 @@ void Test00()
     
     FxsLogPrintf(l, "Hello %f", 42.0f);
     FxsLogPrintf(l, "Hello %f %d", 46.0f, 12);
+    FxsLogPrintf(l, "FFFFFF");
 
     printf("%s\n", FxsLogGetEntry(l, 0));
     printf("%s\n", FxsLogGetEntry(l, 1));
+    printf("%s\n", FxsLogGetEntry(l, 2));
     
     FxsLogDestroy(&l);
 }
