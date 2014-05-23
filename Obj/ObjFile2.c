@@ -176,17 +176,17 @@ typedef struct {
 
 static File* FileCreate()
 {
-	File *f = malloc(sizeof(File));
+	File *f = calloc(1 ,sizeof(File));
 	Node *o, *g; 					/* default object and group nodes */
 
 	if (!f) {
 	    return NULL;
 	}
 
-	f->faces = FxsArrayCreate(1, sizeof(FxsObjFile2Face));
 	f->positions = FxsArrayCreate(1, sizeof(FxsVector3));
 	f->normals = FxsArrayCreate(1, sizeof(FxsVector3));
 	f->texCoords = FxsArrayCreate(1, sizeof(FxsVector2));
+	f->faces = FxsArrayCreate(1, sizeof(FxsObjFile2Face));
 	f->root = NodeCreate();
 	o = NodeCreate();
 	g = NodeCreate();
@@ -213,7 +213,7 @@ static void FileDestroy(File *file)
 	free(file);
 }
 
-static void LoadPostion(File *file, const char *line)
+static void LoadPosition(File *file, const char *line)
 {
 	FxsVector3 v;
 
@@ -244,8 +244,8 @@ static void LoadFace(File *file, const char *line)
 {
 	FxsObjFile2Face f;
 	int found = 0;
-
-	f.n0 = f.n1 = f.n2 = f.tc0 = f.tc1 = f.tc2 = -1;
+    
+    memset(&f, 0, sizeof(FxsObjFile2Face));
 
 	if (3 == sscanf(line, "f %d %d %d", &f.p0, &f.p1, &f.p2)) {
 	    found = 1;
@@ -266,6 +266,18 @@ static void LoadFace(File *file, const char *line)
 	if (!found) {
 	    return;
 	}
+    
+    f.p0--;
+    f.p1--;
+    f.p2--;
+
+    f.n0--;
+    f.n1--;
+    f.n2--;
+
+    f.tc0--;
+    f.tc1--;
+    f.tc2--;
 
 	FxsArrayPush(file->faces, &f);
 	file->current->numFaces++;
@@ -326,15 +338,15 @@ static void LoadMaterialFileName(File *file, const char *line)
 {
 	char name[FXS_OBJ_FILE2_MAX_STRLEN];
 
-	if (1 != sscanf(line, "mtllib %s", name)) {
-		strcpy(file->mtlFilename, name);
+	if (1 == sscanf(line, "mtllib %s", name)) {
+		strncpy(file->mtlFilename, name, FXS_OBJ_FILE2_MAX_STRLEN);
 	}
 }
 
 static void FileUpdateWithLine(File *file, const char *line)
 {
 	if (strstr(line, "v ") == line) {
-	    LoadPostion(file, line);
+	    LoadPosition(file, line);
 	} else if (strstr(line, "vn") == line) {
 		LoadNormal(file, line);
 	} else if (strstr(line, "vt") == line) {

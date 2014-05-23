@@ -34,6 +34,7 @@
 		A84E35C81928A1E300275838 /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = "<group>"; };
 		A84E35C91928A1E300275838 /* monkey.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = monkey.obj; sourceTree = "<group>"; };
 		A84E35CA1928A3BF00275838 /* LighthouseColored.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LighthouseColored.obj; sourceTree = "<group>"; };
+		CCA984CD192F7CB400420BEE /* CornellBox-Original.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CornellBox-Original.obj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 		A84E35AE19289CBD00275838 /* ObjFile2Test */ = {
 			isa = PBXGroup;
 			children = (
+				CCA984CD192F7CB400420BEE /* CornellBox-Original.obj */,
 				A84E35CA1928A3BF00275838 /* LighthouseColored.obj */,
 				A84E35C81928A1E300275838 /* bunny.obj */,
 				A84E35C91928A1E300275838 /* monkey.obj */,
@@ -259,6 +261,7 @@
 				A84E35B719289CBD00275838 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -37,7 +37,7 @@ void DumpGraph(const FxsObjFile2 *obj)
 
 int main(int argc, const char * argv[])
 {
-    FxsObjFile2 *obj = FxsObjFile2Create("bunny.obj");
+    FxsObjFile2 *obj = FxsObjFile2Create("CornellBox-Original.obj");
     DumpGraph(obj);
 
 //    printf("Hello, World!\n");

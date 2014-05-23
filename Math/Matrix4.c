@@ -175,9 +175,9 @@ void FxsMatrix4MakeCameraToWorld(
 	m->m32 = v.z;
 	m->m42 = 0.0;
 
-	m->m13 = u.x;
-	m->m23 = u.y;
-	m->m33 = u.z;
+	m->m13 = n.x;
+	m->m23 = n.y;
+	m->m33 = n.z;
 	m->m43 = 0.0;
 
 	m->m14 = eye->x;

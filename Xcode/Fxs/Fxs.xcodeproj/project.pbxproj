@@ -11,8 +11,6 @@
 		A80A498218EE902300F2F9B2 /* Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A495318EE902300F2F9B2 /* Dictionary.h */; };
 		A80A498718EE902300F2F9B2 /* List.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A495B18EE902300F2F9B2 /* List.c */; };
 		A80A498818EE902300F2F9B2 /* List.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A495C18EE902300F2F9B2 /* List.h */; };
-		A80A498918EE902300F2F9B2 /* IntersectionTriBox.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A495E18EE902300F2F9B2 /* IntersectionTriBox.c */; };
-		A80A498A18EE902300F2F9B2 /* IntersectionTriBox.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A495F18EE902300F2F9B2 /* IntersectionTriBox.h */; };
 		A80A498B18EE902300F2F9B2 /* Matrix2.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496018EE902300F2F9B2 /* Matrix2.c */; };
 		A80A498C18EE902300F2F9B2 /* Matrix2.h in Headers */ = {isa = PBXBuildFile; fileRef = A80A496118EE902300F2F9B2 /* Matrix2.h */; };
 		A80A498D18EE902300F2F9B2 /* Matrix3.c in Sources */ = {isa = PBXBuildFile; fileRef = A80A496218EE902300F2F9B2 /* Matrix3.c */; };
@@ -43,6 +41,15 @@
 		A88B8D691914B98B00400958 /* stb_image.h in Headers */ = {isa = PBXBuildFile; fileRef = A88B8D631914B98B00400958 /* stb_image.h */; };
 		A88B8D6A1914B98B00400958 /* stb_image_write.c in Sources */ = {isa = PBXBuildFile; fileRef = A88B8D641914B98B00400958 /* stb_image_write.c */; };
 		A88B8D6B1914B98B00400958 /* stb_image_write.h in Headers */ = {isa = PBXBuildFile; fileRef = A88B8D651914B98B00400958 /* stb_image_write.h */; };
+		CCB26A26192A083800C8F0B9 /* ObjFile2.c in Sources */ = {isa = PBXBuildFile; fileRef = CCB26A24192A083800C8F0B9 /* ObjFile2.c */; };
+		CCB26A27192A083800C8F0B9 /* ObjFile2.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB26A25192A083800C8F0B9 /* ObjFile2.h */; };
+		CCB26A2E192A084900C8F0B9 /* Array.c in Sources */ = {isa = PBXBuildFile; fileRef = CCB26A29192A084900C8F0B9 /* Array.c */; };
+		CCB26A2F192A084900C8F0B9 /* Array.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB26A2A192A084900C8F0B9 /* Array.h */; };
+		CCB26A30192A084900C8F0B9 /* Log.c in Sources */ = {isa = PBXBuildFile; fileRef = CCB26A2C192A084900C8F0B9 /* Log.c */; };
+		CCB26A31192A084900C8F0B9 /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB26A2D192A084900C8F0B9 /* Log.h */; };
+		CCB26A33192A087E00C8F0B9 /* Intersections.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB26A32192A087E00C8F0B9 /* Intersections.h */; };
+		CCB26A35192A088B00C8F0B9 /* raytri.c in Sources */ = {isa = PBXBuildFile; fileRef = CCB26A34192A088B00C8F0B9 /* raytri.c */; };
+		CCB26A37192A0B7900C8F0B9 /* Intersections.c in Sources */ = {isa = PBXBuildFile; fileRef = CCB26A36192A0B7900C8F0B9 /* Intersections.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +58,6 @@
 		A80A495318EE902300F2F9B2 /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
 		A80A495B18EE902300F2F9B2 /* List.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = List.c; sourceTree = "<group>"; };
 		A80A495C18EE902300F2F9B2 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		A80A495E18EE902300F2F9B2 /* IntersectionTriBox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IntersectionTriBox.c; sourceTree = "<group>"; };
-		A80A495F18EE902300F2F9B2 /* IntersectionTriBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntersectionTriBox.h; sourceTree = "<group>"; };
 		A80A496018EE902300F2F9B2 /* Matrix2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Matrix2.c; sourceTree = "<group>"; };
 		A80A496118EE902300F2F9B2 /* Matrix2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix2.h; sourceTree = "<group>"; };
 		A80A496218EE902300F2F9B2 /* Matrix3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Matrix3.c; sourceTree = "<group>"; };
@@ -85,6 +90,15 @@
 		A88B8D651914B98B00400958 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
 		A8F3AF1918F2F9F1006F440E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		A8F3AF1B18F2FA0C006F440E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		CCB26A24192A083800C8F0B9 /* ObjFile2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ObjFile2.c; sourceTree = "<group>"; };
+		CCB26A25192A083800C8F0B9 /* ObjFile2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjFile2.h; sourceTree = "<group>"; };
+		CCB26A29192A084900C8F0B9 /* Array.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Array.c; sourceTree = "<group>"; };
+		CCB26A2A192A084900C8F0B9 /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
+		CCB26A2C192A084900C8F0B9 /* Log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Log.c; sourceTree = "<group>"; };
+		CCB26A2D192A084900C8F0B9 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		CCB26A32192A087E00C8F0B9 /* Intersections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intersections.h; sourceTree = "<group>"; };
+		CCB26A34192A088B00C8F0B9 /* raytri.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = raytri.c; path = External/raytri.c; sourceTree = "<group>"; };
+		CCB26A36192A0B7900C8F0B9 /* Intersections.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Intersections.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +115,8 @@
 		A80A494118EE8FFD00F2F9B2 = {
 			isa = PBXGroup;
 			children = (
+				CCB26A28192A084900C8F0B9 /* Array */,
+				CCB26A2B192A084900C8F0B9 /* Log */,
 				A88B8D5F1914B98B00400958 /* Image */,
 				A8F3AF1B18F2FA0C006F440E /* SDL2.framework */,
 				A8F3AF1918F2F9F1006F440E /* OpenGL.framework */,
@@ -145,8 +161,9 @@
 		A80A495D18EE902300F2F9B2 /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				A80A495E18EE902300F2F9B2 /* IntersectionTriBox.c */,
-				A80A495F18EE902300F2F9B2 /* IntersectionTriBox.h */,
+				CCB26A36192A0B7900C8F0B9 /* Intersections.c */,
+				CCB26A34192A088B00C8F0B9 /* raytri.c */,
+				CCB26A32192A087E00C8F0B9 /* Intersections.h */,
 				A80A496018EE902300F2F9B2 /* Matrix2.c */,
 				A80A496118EE902300F2F9B2 /* Matrix2.h */,
 				A80A496218EE902300F2F9B2 /* Matrix3.c */,
@@ -191,6 +208,8 @@
 		A80A497618EE902300F2F9B2 /* Obj */ = {
 			isa = PBXGroup;
 			children = (
+				CCB26A24192A083800C8F0B9 /* ObjFile2.c */,
+				CCB26A25192A083800C8F0B9 /* ObjFile2.h */,
 				A80A49A818EE90BD00F2F9B2 /* ObjFile.c */,
 				A80A49A918EE90BD00F2F9B2 /* ObjFile.h */,
 				A80A497B18EE902300F2F9B2 /* ObjMtlFile.c */,
@@ -214,6 +233,26 @@
 			path = ../../Image;
 			sourceTree = "<group>";
 		};
+		CCB26A28192A084900C8F0B9 /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				CCB26A29192A084900C8F0B9 /* Array.c */,
+				CCB26A2A192A084900C8F0B9 /* Array.h */,
+			);
+			name = Array;
+			path = ../../Array;
+			sourceTree = "<group>";
+		};
+		CCB26A2B192A084900C8F0B9 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				CCB26A2C192A084900C8F0B9 /* Log.c */,
+				CCB26A2D192A084900C8F0B9 /* Log.h */,
+			);
+			name = Log;
+			path = ../../Log;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -224,14 +263,17 @@
 				A88B8D671914B98B00400958 /* Image.h in Headers */,
 				A80A499C18EE902300F2F9B2 /* MD5Mesh.h in Headers */,
 				A80A499018EE902300F2F9B2 /* Matrix4.h in Headers */,
+				CCB26A31192A084900C8F0B9 /* Log.h in Headers */,
 				A80A498818EE902300F2F9B2 /* List.h in Headers */,
 				A88B8D6B1914B98B00400958 /* stb_image_write.h in Headers */,
 				A80A499818EE902300F2F9B2 /* Vector4.h in Headers */,
+				CCB26A33192A087E00C8F0B9 /* Intersections.h in Headers */,
 				A80A499418EE902300F2F9B2 /* Vector2.h in Headers */,
 				A80A499218EE902300F2F9B2 /* Quaternion.h in Headers */,
-				A80A498A18EE902300F2F9B2 /* IntersectionTriBox.h in Headers */,
 				A80A498218EE902300F2F9B2 /* Dictionary.h in Headers */,
+				CCB26A27192A083800C8F0B9 /* ObjFile2.h in Headers */,
 				A80A499A18EE902300F2F9B2 /* MD5Animation.h in Headers */,
+				CCB26A2F192A084900C8F0B9 /* Array.h in Headers */,
 				A80A499E18EE902300F2F9B2 /* Number.h in Headers */,
 				A80A49A418EE902300F2F9B2 /* ObjMtlFile.h in Headers */,
 				A80A498C18EE902300F2F9B2 /* Matrix2.h in Headers */,
@@ -297,9 +339,10 @@
 				A88B8D6A1914B98B00400958 /* stb_image_write.c in Sources */,
 				A80A498B18EE902300F2F9B2 /* Matrix2.c in Sources */,
 				A88B8D681914B98B00400958 /* stb_image.c in Sources */,
-				A80A498918EE902300F2F9B2 /* IntersectionTriBox.c in Sources */,
 				A80A498F18EE902300F2F9B2 /* Matrix4.c in Sources */,
+				CCB26A30192A084900C8F0B9 /* Log.c in Sources */,
 				A80A499718EE902300F2F9B2 /* Vector4.c in Sources */,
+				CCB26A2E192A084900C8F0B9 /* Array.c in Sources */,
 				A80A498D18EE902300F2F9B2 /* Matrix3.c in Sources */,
 				A80A499918EE902300F2F9B2 /* MD5Animation.c in Sources */,
 				A80A49A318EE902300F2F9B2 /* ObjMtlFile.c in Sources */,
@@ -308,8 +351,11 @@
 				A80A499B18EE902300F2F9B2 /* MD5Mesh.c in Sources */,
 				A88B8D661914B98B00400958 /* Image.c in Sources */,
 				A80A498118EE902300F2F9B2 /* Dictionary.c in Sources */,
+				CCB26A26192A083800C8F0B9 /* ObjFile2.c in Sources */,
+				CCB26A35192A088B00C8F0B9 /* raytri.c in Sources */,
 				A80A498718EE902300F2F9B2 /* List.c in Sources */,
 				A80A499D18EE902300F2F9B2 /* Number.c in Sources */,
+				CCB26A37192A0B7900C8F0B9 /* Intersections.c in Sources */,
 				A80A49AA18EE90BD00F2F9B2 /* ObjFile.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

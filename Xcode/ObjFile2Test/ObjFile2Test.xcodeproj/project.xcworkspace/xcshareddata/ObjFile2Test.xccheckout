@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EB22DF6B-AC95-48CD-8A9B-1EFBE073DB9E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ObjFile2Test</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FE4F3FB8-2742-4A34-B657-8CB08AF7B566</key>
+		<string>https://github.com/irscttrbrn/Fxs</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Xcode/ObjFile2Test/ObjFile2Test.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FE4F3FB8-2742-4A34-B657-8CB08AF7B566</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/irscttrbrn/Fxs</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FE4F3FB8-2742-4A34-B657-8CB08AF7B566</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FE4F3FB8-2742-4A34-B657-8CB08AF7B566</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Fxs</string>
+		</dict>
+	</array>
+</dict>
+</plist>

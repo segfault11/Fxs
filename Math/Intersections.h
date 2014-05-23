@@ -25,10 +25,12 @@ extern "C"
 
 #include "Vector3.h"
 
-int RayDoesIntersectTriangle(
+int FxsRayDoesIntersectTriangle(
 	const FxsVector3 *orig, 
 	const FxsVector3 *dir, 
 	float *t,
+    float *u,
+    float *v,
 	const FxsVector3 *v0,
 	const FxsVector3 *v1,
 	const FxsVector3 *v2

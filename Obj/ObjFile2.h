@@ -22,7 +22,7 @@
 #include "../Math/Vector2.h"
 #include "../Math/Vector3.h"
 
-#define FXS_OBJ_FILE2_MAX_STRLEN 16
+#define FXS_OBJ_FILE2_MAX_STRLEN 64
 
 /*
 ** Representation of a face. Holds indices to position, normal and texture

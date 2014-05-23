@@ -24,14 +24,12 @@ extern "C"
 {
 #endif
 
-typedef struct
-{
+typedef struct {
 	unsigned char* data; /* NOTE: byte alignment is always 1 */
 	int width;
 	int height;
 	int numChannels;
-}
-FxsImage;
+} FxsImage;
 
 typedef FxsImage* FxsImagePtr;
 
