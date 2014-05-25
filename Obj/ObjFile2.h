@@ -24,11 +24,17 @@
 
 #define FXS_OBJ_FILE2_MAX_STRLEN 64
 
+enum {
+	FXS_OBJ2_FACE_NORMALS = 1,
+	FXS_OBJ2_FACE_TEXCOORDS = 2,
+};
+
 /*
 ** Representation of a face. Holds indices to position, normal and texture
 ** coordinates in the "FxsObjFile2" structure.
 */ 
 typedef struct {
+	int type;
 	int p0, p1, p2;
 	int n0, n1, n2;
 	int tc0, tc1, tc2;

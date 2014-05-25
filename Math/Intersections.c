@@ -1,5 +1,7 @@
 #include "Intersections.h"
 
+#define EPSILON 0.00001
+#define FloatIsZero(x) x < EPSILON && x > -EPSILON 
 #define VEC2ARR(ARR, VEC) ARR[0] = VEC->x; ARR[1] = VEC->y; ARR[2] = VEC->z; 
 
 extern int intersect_triangle(double orig[3], double dir[3], double vert0[3],
@@ -33,4 +35,27 @@ int FxsRayDoesIntersectTriangle(
 	*v = (float)dv;
 
 	return res;
+}
+
+int FxsRayDoesIntersectPlane(
+	const FxsVector3 *orig, 
+	const FxsVector3 *dir, 
+	float *t,
+	float dist,
+	const FxsVector3 *normal
+)
+{
+	float ddirn, don;
+
+	FxsVector3Dot(&ddirn, dir, normal);
+
+	if (FloatIsZero(ddirn)) {
+	    return 0;
+	}
+
+	FxsVector3Dot(&don, orig, normal);
+
+	*t = (dist - don) / ddirn;
+
+	return 1;
 }

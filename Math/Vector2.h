@@ -98,6 +98,11 @@ void FxsVector2Copy(FxsVector2* dst, const FxsVector2* src);
 void FxsVector2Length(const FxsVector2* a, float* length);
 
 /*
+** Computes the distance between two vectors.
+*/ 
+float FxsVector2Distance(const FxsVector2 *a, const FxsVector2 *b);
+
+/*
 ** Normalizes the vector v. Returns 0 if the vector cannot be normalized, i.e.
 ** has length zero
 */ 

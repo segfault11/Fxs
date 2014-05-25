@@ -94,6 +94,10 @@ void FxsVector4SubstractScalar(
 void FxsVector4Length(const FxsVector4* a, float* length);
 
 /*
+** Computes the distance between two vectors.
+*/ 
+float FxsVector4Distance(const FxsVector4 *a, const FxsVector4 *b);
+/*
 ** Normalizes the vector v. Returns 0 if the vector cannot be normalized, i.e.
 ** has length zero
 */ 

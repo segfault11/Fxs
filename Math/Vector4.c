@@ -113,6 +113,16 @@ void FxsVector4Length(const FxsVector4* a, float* length)
 	*length = sqrt(a->x*a->x + a->y*a->y + a->z*a->z + a->w*a->w);
 }
 
+float FxsVector4Distance(const FxsVector4 *a, const FxsVector4 *b)
+{
+	FxsVector4 c;
+	float len;
+
+	FxsVector4Substract(&c, a, b);
+	FxsVector4Length(&c, &len);
+	return len;	
+}
+
 int FxsVector4Normalize(FxsVector4* a)
 {
 	float l;

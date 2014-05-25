@@ -83,6 +83,17 @@ void FxsVector2Length(const FxsVector2* a, float* length)
 	*length = sqrt(a->x*a->x + a->y*a->y);
 }
 
+float FxsVector2Distance(const FxsVector2 *a, const FxsVector2 *b)
+{
+	FxsVector2 c;
+	float len;
+
+	FxsVector2Substract(&c, a, b);
+	FxsVector2Length(&c, &len);
+	return len;	
+}
+
+
 int FxsVector2Normalize(FxsVector2* a)
 {
 	float l;

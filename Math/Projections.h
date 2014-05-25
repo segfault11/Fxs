@@ -1,6 +1,6 @@
 /*
- * Various intersection test routines
- * Copyright (C) 2014 Arno in Wolde Luebke 
+ * Various routines that project points onto geometry
+ * Copyright (C) 2014 Arno in Wolde Luebke
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef INTERSECTIONS_H
-#define INTERSECTIONS_H
+#ifndef PROJECTIONS_H
+#define PROJECTIONS_H
 
 #ifdef __cplusplus
 extern "C"
@@ -25,32 +25,18 @@ extern "C"
 
 #include "Vector3.h"
 
-int FxsRayDoesIntersectTriangle(
-	const FxsVector3 *orig, 
-	const FxsVector3 *dir, 
-	float *t,
-    float *u,
-    float *v,
-	const FxsVector3 *v0,
-	const FxsVector3 *v1,
-	const FxsVector3 *v2
-);
-
 /*
-** Computes the intersection of a ray with a plane. The plane is provided
-** in hessian normal form. Both, "dir" and "normal" are assumed to be 
-** normalized.
+** Projects a point onto a line and stores the result in "projLine".
 */ 
-int FxsRayDoesIntersectPlane(
-	const FxsVector3 *orig, 
-	const FxsVector3 *dir, 
-	float *t,
-	float dist,
-	const FxsVector3 *normal
+void FxsPointProjectOntoLine(
+	const FxsVector3 *point,
+	FxsVector3 *projPoint,
+	const FxsVector3 *origin,
+	const FxsVector3 *direction
 );
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* end of include guard: INTERSECTIONS_H */
+#endif /* end of include guard: PROJECTIONS_H */

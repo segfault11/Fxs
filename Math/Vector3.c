@@ -103,13 +103,22 @@ void FxsVector3Length(const FxsVector3* a, float* length)
 	*length = sqrt(a->x*a->x + a->y*a->y + a->z*a->z);
 }
 
+float FxsVector3Distance(const FxsVector3 *a, const FxsVector3 *b)
+{
+	FxsVector3 c;
+	float len;
+
+	FxsVector3Substract(&c, a, b);
+	FxsVector3Length(&c, &len);
+	return len;	
+}
+
 int FxsVector3Normalize(FxsVector3* a)
 {
 	float l;
 	FxsVector3Length(a, &l);
 
-	if (l == 0.0f) 
-	{
+	if (l == 0.0f) {
 		return 0; 
 	}
 

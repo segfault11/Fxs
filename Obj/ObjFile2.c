@@ -251,15 +251,20 @@ static void LoadFace(File *file, const char *line)
 	    found = 1;
 	} else if (6 == sscanf(line, "f %d//%d %d//%d %d//%d", 
 		&f.p0, &f.n0, &f.p1, &f.n1, &f.p2, &f.n2)) {
+		f.type |= FXS_OBJ2_FACE_NORMALS;
 	    found = 1;
 	} else if (6 == sscanf(line, "f %d/%d %d/%d %d/%d", 
 		&f.p0, &f.tc0, &f.p1, &f.tc1, &f.p2, &f.tc2)) {
+		f.type |= FXS_OBJ2_FACE_TEXCOORDS;
 	    found = 1;
 	} else if (6 == sscanf(line, "f %d/%d/ %d/%d/ %d/%d/", 
 		&f.p0, &f.tc0, &f.p1, &f.tc1, &f.p2, &f.tc2)) {
+		f.type |= FXS_OBJ2_FACE_TEXCOORDS;
 	    found = 1;
 	} else if (6 == sscanf(line, "f %d/%d/%d %d/%d/%d %d/%d/%d", 
 		&f.p0, &f.tc0, &f.n0, &f.p1, &f.tc1, &f.n1, &f.p2, &f.tc2, &f.n2)) {
+		f.type |= FXS_OBJ2_FACE_NORMALS;
+		f.type |= FXS_OBJ2_FACE_TEXCOORDS;
 	    found = 1;
 	}
 
